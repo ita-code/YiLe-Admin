@@ -295,3 +295,25 @@ export function findItemNested(enumData: any, callValue: any, value: string, chi
     if (current[children]) return findItemNested(current[children], callValue, value, children);
   }, null);
 }
+/**
+ * 格式化时间
+const myDate = new Date(); // 假设当前时间为 "2023-08-25T10:30:00"
+console.log(formatTime(myDate, 'yyyy-MM-dd')); // 输出 "2023-08-25"
+console.log(formatTime(myDate, 'MM/dd/yyyy')); // 输出 "08/25/2023"
+console.log(formatTime(myDate, 'HH:mm:ss')); // 输出 "10:30:00"
+console.log(formatTime(myDate, 'hh:mm:ss a')); // 输出 "10:30:00 AM"
+console.log(formatTime(myDate, 'yyyy年MM月dd日')); // 输出 "2023年08月25日"
+console.log(formatTime(myDate, 'yyyy-MM-dd HH:mm:ss')); // 输出 "2023-08-25 10:30:00"
+ */
+export const formatTime = (date: Date, format: string): string => {
+  const options: Intl.DateTimeFormatOptions = {
+    year: format.includes("yyyy") ? "numeric" : undefined,
+    month: format.includes("MM") ? "2-digit" : undefined,
+    day: format.includes("dd") ? "2-digit" : undefined,
+    hour: format.includes("HH") ? "2-digit" : format.includes("hh") ? "numeric" : undefined,
+    minute: format.includes("mm") ? "2-digit" : undefined,
+    second: format.includes("ss") ? "2-digit" : undefined
+  };
+  const formatter = new Intl.DateTimeFormat("zh-CN", options);
+  return formatter.format(date);
+};

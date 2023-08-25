@@ -1,12 +1,7 @@
-import { h, render } from 'vue'
-import Confirm from './index.vue'
+import { h, render } from "vue";
+import Confirm from "./index.vue";
 
-export default function createConfirm({
-  title,
-  content,
-  cancelText = '取消',
-  confirmText = '确定'
-}) {
+export default function createConfirm({ title, content, cancelText = "取消", confirmText = "确定" }) {
   return new Promise((resolve, reject) => {
     // 暂时性死区
     // const confirmInstance = createApp(Confirm, {
@@ -30,18 +25,18 @@ export default function createConfirm({
       // confirmId && document.body.removeChild(confirmId)
 
       // 2. render
-      render(null, document.body)
-    }
+      render(null, document.body);
+    };
 
     /**
      * 点击确定按钮，回调
      */
-    const handleConfirmClick = resolve
+    const handleConfirmClick = resolve;
 
     /**
      * 点击取消按钮，回调
      */
-    const handleCancelClick = reject
+    const handleCancelClick = reject;
 
     // 1. vnode 生成vnode，并传入props
     const vnode = h(Confirm, {
@@ -52,8 +47,8 @@ export default function createConfirm({
       closeAfter,
       handleConfirmClick,
       handleCancelClick
-    })
+    });
     // 2. render 渲染组件到body中
-    render(vnode, document.body)
-  })
+    render(vnode, document.body);
+  });
 }
