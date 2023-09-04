@@ -1,13 +1,15 @@
 import { ElDialog, ElButton } from "element-plus";
 import { h, ref, createApp } from "vue";
+
 interface ConfirmType {
   title: string;
   content: string;
-  cancelText: string;
-  confirmText: string;
-  type: "primary" | "success" | "warning" | "info" | "error";
+  cancelText?: string;
+  confirmText?: string;
+  type?: "primary" | "success" | "warning" | "info" | "danger";
 }
-export default function SkConfirm({ title, content, cancelText = "取消", confirmText = "确定", type = "primary" }: ConfirmType) {
+
+export default function SkConfirm({ title, content, cancelText = "取消", confirmText = "确认", type = "primary" }: ConfirmType) {
   return new Promise(resolve => {
     const visible = ref(true);
     const app = createApp({
@@ -32,7 +34,8 @@ export default function SkConfirm({ title, content, cancelText = "取消", confi
           {
             width: 450,
             modelValue: visible.value,
-            class: "el-dialog-sk-confirm",
+            alignCenter: true,
+            class: "el-dialog-confirm",
             "onUpdate:modelValue": (val: boolean) => {
               visible.value = val;
             }
