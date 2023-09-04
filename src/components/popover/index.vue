@@ -21,80 +21,73 @@
 
 <script>
 // 延迟关闭时长
-const DELAY_TIME = 100
+const DELAY_TIME = 100;
 
-const PROP_TOP_LEFT = 'top-left'
-const PROP_TOP_RIGHT = 'top-right'
-const PROP_BOTTOM_LEFT = 'bottom-left'
-const PROP_BOTTOM_RIGHT = 'bottom-right'
+const PROP_TOP_LEFT = "top-left";
+const PROP_TOP_RIGHT = "top-right";
+const PROP_BOTTOM_LEFT = "bottom-left";
+const PROP_BOTTOM_RIGHT = "bottom-right";
 
 // 定义指定位置的 Enum
-const placementEnum = [
-  PROP_TOP_LEFT,
-  PROP_TOP_RIGHT,
-  PROP_BOTTOM_LEFT,
-  PROP_BOTTOM_RIGHT
-]
+const placementEnum = [PROP_TOP_LEFT, PROP_TOP_RIGHT, PROP_BOTTOM_LEFT, PROP_BOTTOM_RIGHT];
 </script>
 
 <script setup>
-import { ref, watch, nextTick } from 'vue'
+import { ref, watch, nextTick } from "vue";
 
 const props = defineProps({
   // 控制气泡弹出位置，并给出开发者错误的提示
   placement: {
     type: String,
-    default: 'bottom-left',
+    default: "bottom-left",
     validator(val) {
-      const result = placementEnum.includes(val)
+      const result = placementEnum.includes(val);
       if (!result) {
-        throw new Error(
-          `你的 placement 必须是 ${placementEnum.join('、')} 中的一个`
-        )
+        throw new Error(`你的 placement 必须是 ${placementEnum.join("、")} 中的一个`);
       }
-      return result
+      return result;
     }
   }
-})
+});
 
 // 控制 menu 展示
-const isVisible = ref(false)
+const isVisible = ref(false);
 
 // 控制延迟关闭
-let timeout = null
+let timeout = null;
 /**
  * 鼠标移入的触发行为
  */
 const handleMouseenter = () => {
-  isVisible.value = true
+  isVisible.value = true;
   // 再次触发时，清理延时装置
   if (timeout) {
-    clearTimeout(timeout)
+    clearTimeout(timeout);
   }
-}
+};
 /**
  * 鼠标移出的触发行为
  */
 const handleMouseleave = () => {
   // 延时装置
   timeout = setTimeout(() => {
-    isVisible.value = false
-    timeout = null
-  }, DELAY_TIME)
-}
+    isVisible.value = false;
+    timeout = null;
+  }, DELAY_TIME);
+};
 
 /**
  * 计算元素尺寸
  */
-const referenceRef = ref(null)
-const contentRef = ref(null)
-const useElementSize = (target) => {
-  if (!target) return {}
+const referenceRef = ref(null);
+const contentRef = ref(null);
+const useElementSize = target => {
+  if (!target) return {};
   return {
     width: target.offsetWidth,
     height: target.offsetHeight
-  }
-}
+  };
+};
 
 /**
  * 计算弹层位置
@@ -102,16 +95,16 @@ const useElementSize = (target) => {
 const contentStyle = ref({
   top: 0,
   left: 0
-})
+});
 
 /**
  * 监听展示的变化，在展示时计算气泡位置
- * 
+ *
  * 拿到元素宽高，然后做处理
  */
-watch(isVisible, (val) => {
+watch(isVisible, val => {
   if (!val) {
-    return
+    return;
   }
   // 等待渲染成功之后
   // vue 在数据改变后，需要等待一段时间 DOM 才会变化
@@ -119,43 +112,41 @@ watch(isVisible, (val) => {
     switch (props.placement) {
       // 左上
       case PROP_TOP_LEFT:
-        contentStyle.value.top = 0
-        contentStyle.value.left =
-          -useElementSize(contentRef.value).width + 'px'
-        break
+        contentStyle.value.top = 0;
+        contentStyle.value.left = -useElementSize(contentRef.value).width + "px";
+        break;
       // 右上
       case PROP_TOP_RIGHT:
-        contentStyle.value.top = 0
-        contentStyle.value.left =
-          useElementSize(referenceRef.value).width + 'px'
-        break
+        contentStyle.value.top = 0;
+        contentStyle.value.left = useElementSize(referenceRef.value).width + "px";
+        break;
       // 左下
       case PROP_BOTTOM_LEFT:
-        contentStyle.value.top =
-          useElementSize(referenceRef.value).height + 'px'
-        contentStyle.value.left =
-          -useElementSize(contentRef.value).width + 'px'
-        break
+        contentStyle.value.top = useElementSize(referenceRef.value).height + "px";
+        contentStyle.value.left = -useElementSize(contentRef.value).width + "px";
+        break;
       // 右下
       case PROP_BOTTOM_RIGHT:
-        contentStyle.value.top =
-          useElementSize(referenceRef.value).height + 'px'
-        contentStyle.value.left =
-          useElementSize(referenceRef.value).width + 'px'
-        break
+        contentStyle.value.top = useElementSize(referenceRef.value).height + "px";
+        contentStyle.value.left = useElementSize(referenceRef.value).width + "px";
+        break;
     }
-  })
-})
+  });
+});
 </script>
 
 <style lang="scss" scoped>
 // slide 展示动画
 .slide-enter-active {
-  transition: opacity 0.3s, transform 0.3s;
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
 }
 
 .slide-leave-active {
-  transition: opacity 0.3s, transform 0.3s;
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
 }
 
 .slide-enter-from,
