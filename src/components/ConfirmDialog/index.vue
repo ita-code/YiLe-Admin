@@ -31,7 +31,7 @@
 <script setup>
 import { onMounted, ref } from "vue";
 // 通过方法调用的组件，需要主动导入组件（内部子组件都需要导入）
-import HmButton from "../button/index.vue";
+// import HmButton from "../button/index.vue";
 
 const props = defineProps({
   title: {

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-const name = ref('张三')
-const title = ref('')
+import { ref } from "vue";
+const name = ref("张三");
+const title = ref("");
 const setTitle = (val: string) => {
-  title.value = val
-}
+  title.value = val;
+};
 // defineProps({
 //   title: {
 //     type: String,
@@ -16,7 +16,7 @@ defineExpose({
   name,
   setTitle,
   title
-})
+});
 </script>
 
 <template>
