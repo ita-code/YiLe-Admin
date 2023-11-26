@@ -1,5 +1,6 @@
 // 1、并发考虑
 // 2、数据刷新（方案一：在每个字典中写一个时间，对比时间是否需要重新问数据库拿）
+// 想法mybatis基于线程池
 
 // import Api from "@/api/common";
 // import type { BaseState, CacheMap, Dict, DictItem } from "@/store/type/base";
