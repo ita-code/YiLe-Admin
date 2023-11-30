@@ -12,12 +12,17 @@ interface ChartProp {
 const initChart = (data: any = {}): ECharts => {
   const charEle = document.getElementById("OverNext30Chart") as HTMLElement;
   const charEch: ECharts = init(charEle);
+  // tooltip顶置方法：隐藏 拿值
   const option: EChartsOption = {
     tooltip: {
+      show: true,
       trigger: "axis",
       confine: true,
+      position: ["45%", "0"],
+      className: "echarts-tooltip-box",
       formatter: (params: any) => {
         let tipData = params[0];
+        console.log(params, "打印日志:tipData=>", tipData);
         let html = `<div class="lineChart-bg">
                         <span style="">${tipData.name} <i >${tipData.value}</i> 人次访问</span>
                     </div>`;
@@ -190,10 +195,20 @@ defineExpose({
   initChart
 });
 </script>
+<style lang="scss">
+div:has(> .lineChart-bg) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+</style>
 <style lang="scss" scoped>
 .echarts {
   width: 100%;
   height: 100%;
+  position: relative;
   :deep(.lineChart-bg) {
     box-sizing: border-box;
     display: flex;
