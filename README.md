@@ -113,10 +113,3 @@ Geeker-Admin
 ├─ tsconfig.json          # typescript 全局配置
 └─ vite.config.ts         # vite 全局配置文件
 ```
-
-### 项目后台接口 🧩
-
-项目后台接口完全采用 Mock 数据，感谢以下 Mock 平台支持：
-
-- FastMock： https://www.fastmock.site
-- EasyMock：https://mock.mengxuegu.com
