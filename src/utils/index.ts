@@ -1,6 +1,8 @@
 import { isArray } from "@/utils/is";
 import { FieldNamesProps } from "@/components/ProTable/interface";
 
+const mode = import.meta.env.VITE_ROUTER_MODE;
+
 /**
  * @description 获取localStorage
  * @param {String} key Storage名称
@@ -133,6 +135,18 @@ export function getBrowserLang() {
 }
 
 /**
+ * @description 获取不同路由模式所对应的 url + params
+ * @returns {String}
+ */
+export function getUrlWithParams() {
+  const url = {
+    hash: location.hash.substring(1),
+    history: location.pathname + location.search
+  };
+  return url[mode];
+}
+
+/**
  * @description 使用递归扁平化菜单，方便添加动态路由
  * @param {Array} menuList 菜单列表
  * @returns {Array}
@@ -229,7 +243,7 @@ export function formatTableColumn(row: number, col: number, callValue: any) {
 }
 
 /**
- * @description 处理值无数据情况
+ * @description 处理 ProTable 值为数组 || 无数据
  * @param {*} callValue 需要处理的值
  * @returns {String}
  * */
@@ -295,25 +309,3 @@ export function findItemNested(enumData: any, callValue: any, value: string, chi
     if (current[children]) return findItemNested(current[children], callValue, value, children);
   }, null);
 }
-/**
- * 格式化时间
-const myDate = new Date(); // 假设当前时间为 "2023-08-25T10:30:00"
-console.log(formatTime(myDate, 'yyyy-MM-dd')); // 输出 "2023-08-25"
-console.log(formatTime(myDate, 'MM/dd/yyyy')); // 输出 "08/25/2023"
-console.log(formatTime(myDate, 'HH:mm:ss')); // 输出 "10:30:00"
-console.log(formatTime(myDate, 'hh:mm:ss a')); // 输出 "10:30:00 AM"
-console.log(formatTime(myDate, 'yyyy年MM月dd日')); // 输出 "2023年08月25日"
-console.log(formatTime(myDate, 'yyyy-MM-dd HH:mm:ss')); // 输出 "2023-08-25 10:30:00"
- */
-export const formatTime = (date: Date, format: string): string => {
-  const options: Intl.DateTimeFormatOptions = {
-    year: format.includes("yyyy") ? "numeric" : undefined,
-    month: format.includes("MM") ? "2-digit" : undefined,
-    day: format.includes("dd") ? "2-digit" : undefined,
-    hour: format.includes("HH") ? "2-digit" : format.includes("hh") ? "numeric" : undefined,
-    minute: format.includes("mm") ? "2-digit" : undefined,
-    second: format.includes("ss") ? "2-digit" : undefined
-  };
-  const formatter = new Intl.DateTimeFormat("zh-CN", options);
-  return formatter.format(date);
-};

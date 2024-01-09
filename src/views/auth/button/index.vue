@@ -11,7 +11,7 @@
     <el-row class="mb20">
       <el-button v-if="BUTTONS.add" type="primary" :icon="CirclePlus"> 新增 </el-button>
       <el-button v-if="BUTTONS.edit" type="warning" :icon="EditPen"> 编辑 </el-button>
-      <el-button v-if="BUTTONS.delete" type="danger" plain :icon="Delete" @click="handleDel"> 删除 </el-button>
+      <el-button v-if="BUTTONS.delete" type="danger" plain :icon="Delete"> 删除 </el-button>
       <el-button v-if="BUTTONS.import" type="info" plain :icon="Upload"> 导入数据 </el-button>
       <el-button v-if="BUTTONS.export" type="info" plain :icon="Download"> 导出数据 </el-button>
     </el-row>
@@ -39,17 +39,8 @@ import { useAuthButtons } from "@/hooks/useAuthButtons";
 import { CirclePlus, Delete, EditPen, Download, Upload } from "@element-plus/icons-vue";
 
 const { BUTTONS } = useAuthButtons();
-import Confirm, { ConfirmResult } from "@/components/ConfirmDialog/Confirm";
-const handleDel = () => {
-  Confirm({ title: "提示", content: "提示内容" }, (res: ConfirmResult) => {
-    setTimeout(() => {
-      res.closeLoading();
-    }, 3000);
-  });
-};
 </script>
 
 <style scoped lang="scss">
 @import "./index.scss";
 </style>
-@/components/ConfirmDialog/Confirm

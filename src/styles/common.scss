@@ -121,16 +121,3 @@
     padding-left: #{$i}px !important;
   }
 }
-
-.el-dialog-sk-confirm {
-  .el-dialog__header {
-    padding-bottom: 14px;
-    margin-right: 0;
-    box-shadow: inset 0px -1px 0px rgba(220, 223, 230, 1);
-
-    .el-dialog__title {
-      font-size: 18px;
-      font-weight: 700;
-    }
-  }
-}

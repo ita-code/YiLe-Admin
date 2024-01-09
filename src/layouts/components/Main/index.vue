@@ -1,6 +1,6 @@
 <template>
-  <Maximize v-if="maximize" />
-  <Tabs v-if="tabs" />
+  <Maximize v-show="maximize" />
+  <Tabs v-show="tabs" />
   <el-main>
     <router-view v-slot="{ Component, route }">
       <transition appear name="fade-transform" mode="out-in">
@@ -9,17 +9,13 @@
         </keep-alive>
       </transition>
     </router-view>
-    <transition appear name="fade-transform" mode="out-in">
-      <iframe-cache-view></iframe-cache-view>
-    </transition>
   </el-main>
-  <el-footer v-if="footer">
+  <el-footer v-show="footer">
     <Footer />
   </el-footer>
 </template>
 
 <script setup lang="ts">
-import iframeCacheView from "./IframeCacheView.vue";
 import { ref, onBeforeUnmount, provide, watch } from "vue";
 import { storeToRefs } from "pinia";
 import { useDebounceFn } from "@vueuse/core";

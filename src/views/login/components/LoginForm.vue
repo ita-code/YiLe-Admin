@@ -76,14 +76,14 @@ const login = (formEl: FormInstance | undefined) => {
       await initDynamicRouter();
 
       // 3.清空 tabs、keepAlive 数据
-      tabsStore.closeMultipleTab();
-      keepAliveStore.setKeepAliveName();
+      tabsStore.setTabs([]);
+      keepAliveStore.setKeepAliveName([]);
 
       // 4.跳转到首页
       router.push(HOME_URL);
       ElNotification({
         title: getTimeState(),
-        message: "欢迎登录 Geeker-Admin",
+        message: "欢迎登录 Admin",
         type: "success",
         duration: 3000
       });

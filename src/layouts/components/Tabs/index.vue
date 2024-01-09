@@ -4,7 +4,7 @@
       <el-tabs v-model="tabsMenuValue" type="card" @tab-click="tabClick" @tab-remove="tabRemove">
         <el-tab-pane v-for="item in tabsMenuList" :key="item.path" :label="item.title" :name="item.path" :closable="item.close">
           <template #label>
-            <el-icon v-show="item.icon && tabsIcon" class="tabs-icon">
+            <el-icon v-if="item.icon && tabsIcon" class="tabs-icon">
               <component :is="item.icon"></component>
             </el-icon>
             {{ item.title }}
@@ -23,7 +23,6 @@ import { useRoute, useRouter } from "vue-router";
 import { useGlobalStore } from "@/stores/modules/global";
 import { useTabsStore } from "@/stores/modules/tabs";
 import { useAuthStore } from "@/stores/modules/auth";
-import { useKeepAliveStore } from "@/stores/modules/keepAlive";
 import { TabsPaneContext, TabPaneName } from "element-plus";
 import MoreButton from "./components/MoreButton.vue";
 
@@ -32,7 +31,6 @@ const router = useRouter();
 const tabStore = useTabsStore();
 const authStore = useAuthStore();
 const globalStore = useGlobalStore();
-const keepAliveStore = useKeepAliveStore();
 
 const tabsMenuValue = ref(route.fullPath);
 const tabsMenuList = computed(() => tabStore.tabsMenuList);
@@ -54,13 +52,30 @@ watch(
       title: route.meta.title as string,
       path: route.fullPath,
       name: route.name as string,
-      close: !route.meta.isAffix
+      close: !route.meta.isAffix,
+      isKeepAlive: route.meta.isKeepAlive as boolean
     };
     tabStore.addTabs(tabsParams);
-    route.meta.isKeepAlive && keepAliveStore.addKeepAliveName(route.name as string);
   },
   { immediate: true }
 );
+
+// 初始化需要固定的 tabs
+const initTabs = () => {
+  authStore.flatMenuListGet.forEach(item => {
+    if (item.meta.isAffix && !item.meta.isHide && !item.meta.isFull) {
+      const tabsParams = {
+        icon: item.meta.icon,
+        title: item.meta.title,
+        path: item.path,
+        name: item.name,
+        close: !item.meta.isAffix,
+        isKeepAlive: item.meta.isKeepAlive
+      };
+      tabStore.addTabs(tabsParams);
+    }
+  });
+};
 
 // tabs 拖拽排序
 const tabsDrop = () => {
@@ -76,22 +91,6 @@ const tabsDrop = () => {
   });
 };
 
-// 初始化需要固定的 tabs
-const initTabs = () => {
-  authStore.flatMenuListGet.forEach(item => {
-    if (item.meta.isAffix && !item.meta.isHide && !item.meta.isFull) {
-      const tabsParams = {
-        icon: item.meta.icon,
-        title: item.meta.title,
-        path: item.path,
-        name: item.name,
-        close: !item.meta.isAffix
-      };
-      tabStore.addTabs(tabsParams);
-    }
-  });
-};
-
 // Tab Click
 const tabClick = (tabItem: TabsPaneContext) => {
   const fullPath = tabItem.props.name as string;
@@ -100,8 +99,6 @@ const tabClick = (tabItem: TabsPaneContext) => {
 
 // Remove Tab
 const tabRemove = (fullPath: TabPaneName) => {
-  const name = tabStore.tabsMenuList.filter(item => item.path == fullPath)[0].name || "";
-  keepAliveStore.removeKeepAliveName(name);
   tabStore.removeTabs(fullPath as string, fullPath == route.fullPath);
 };
 </script>
