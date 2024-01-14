@@ -39,6 +39,7 @@ export const initDynamicRouter = async () => {
       if (item.component && typeof item.component == "string") {
         item.component = modules["/src/views" + item.component + ".vue"];
       }
+      // 是否为全屏菜单
       if (item.meta.isFull) {
         router.addRoute(item as unknown as RouteRecordRaw);
       } else {

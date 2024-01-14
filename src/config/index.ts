@@ -1,4 +1,4 @@
-// ? 全局默认配置项
+// 全局默认配置项
 
 // 首页地址（默认）
 export const HOME_URL: string = "/home/index";
@@ -17,3 +17,10 @@ export const AMAP_MAP_KEY: string = "";
 
 // 百度地图 key
 export const BAIDU_MAP_KEY: string = "";
+
+// test账号
+import { Login } from "@/api/interface/index";
+export const TEST_ACCOUNT: Login.ReqLoginForm[] = [
+  { username: "admin", password: "123456" },
+  { username: "user", password: "123456" }
+];

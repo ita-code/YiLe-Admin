@@ -2,34 +2,6 @@
   "code": 200,
   "data": [
     {
-      "path": "/test1/index",
-      "name": "test1",
-      "isIframe": true,
-      "meta": {
-        "icon": "HomeFilled",
-        "title": "缓存IFrom1",
-        "isLink": "",
-        "isHide": false,
-        "isFull": false,
-        "isAffix": true,
-        "isKeepAlive": true
-      }
-    },
-    {
-      "path": "/test2/index",
-      "name": "test2",
-      "isIframe": true,
-      "meta": {
-        "icon": "HomeFilled",
-        "title": "缓存IFrom2",
-        "isLink": "",
-        "isHide": false,
-        "isFull": false,
-        "isAffix": true,
-        "isKeepAlive": true
-      }
-    },
-    {
       "path": "/home/index",
       "name": "home",
       "component": "/home/index",
@@ -42,64 +14,6 @@
         "isAffix": true,
         "isKeepAlive": true
       }
-    },
-    {
-      "path": "/dataScreen",
-      "name": "dataScreen",
-      "component": "/dataScreen/index",
-      "meta": {
-        "icon": "Histogram",
-        "title": "数据大屏",
-        "isLink": "",
-        "isHide": false,
-        "isFull": true,
-        "isAffix": false,
-        "isKeepAlive": true
-      }
-    },
-    {
-      "path": "/auth",
-      "name": "auth",
-      "redirect": "/auth/menu",
-      "meta": {
-        "icon": "Lock",
-        "title": "权限管理",
-        "isLink": "",
-        "isHide": false,
-        "isFull": false,
-        "isAffix": false,
-        "isKeepAlive": true
-      },
-      "children": [
-        {
-          "path": "/auth/menu",
-          "name": "authMenu",
-          "component": "/auth/menu/index",
-          "meta": {
-            "icon": "Menu",
-            "title": "菜单权限",
-            "isLink": "",
-            "isHide": false,
-            "isFull": false,
-            "isAffix": false,
-            "isKeepAlive": true
-          }
-        },
-        {
-          "path": "/auth/button",
-          "name": "authButton",
-          "component": "/auth/button/index",
-          "meta": {
-            "icon": "Menu",
-            "title": "按钮权限",
-            "isLink": "",
-            "isHide": false,
-            "isFull": false,
-            "isAffix": false,
-            "isKeepAlive": true
-          }
-        }
-      ]
     },
     {
       "path": "/dashboard",
@@ -144,6 +58,34 @@
           }
         }
       ]
+    },
+    {
+      "path": "/test1/index",
+      "name": "test1",
+      "isIframe": true,
+      "meta": {
+        "icon": "HomeFilled",
+        "title": "缓存IFrom1",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": true
+      }
+    },
+    {
+      "path": "/test2/index",
+      "name": "test2",
+      "isIframe": true,
+      "meta": {
+        "icon": "HomeFilled",
+        "title": "缓存IFrom2",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": true
+      }
     },
     {
       "path": "/menu",

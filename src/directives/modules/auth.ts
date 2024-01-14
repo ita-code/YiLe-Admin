@@ -4,7 +4,10 @@
  */
 import { useAuthStore } from "@/stores/modules/auth";
 import type { Directive, DirectiveBinding } from "vue";
-
+/**
+ * v-auth="'add'"
+ * v-auth="['add', 'edit']"
+ */
 const auth: Directive = {
   mounted(el: HTMLElement, binding: DirectiveBinding) {
     const { value } = binding;

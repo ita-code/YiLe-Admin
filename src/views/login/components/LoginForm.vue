@@ -25,29 +25,20 @@
       登录
     </el-button>
   </div>
+  <div class="test" v-if="env.VITE_USER_NODE_ENV === 'development'">
+    <el-divider content-position="center">演示账号一键登录</el-divider>
+    <el-tag effect="plain" class="ml10 mr10" v-for="item in TEST_ACCOUNT" :key="item.username" @click="getUserLogin(item)">
+      {{ item.username }}
+    </el-tag>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
-import { useRouter } from "vue-router";
-import { HOME_URL } from "@/config";
-import { getTimeState } from "@/utils";
 import { Login } from "@/api/interface";
-import { ElNotification } from "element-plus";
-import { loginApi } from "@/api/modules/login";
-import { useUserStore } from "@/stores/modules/user";
-import { useTabsStore } from "@/stores/modules/tabs";
-import { useKeepAliveStore } from "@/stores/modules/keepAlive";
-import { initDynamicRouter } from "@/routers/modules/dynamicRouter";
 import { CircleClose, UserFilled } from "@element-plus/icons-vue";
 import type { ElForm } from "element-plus";
-import md5 from "md5";
-
-const router = useRouter();
-const userStore = useUserStore();
-const tabsStore = useTabsStore();
-const keepAliveStore = useKeepAliveStore();
-
+const env = import.meta.env;
 type FormInstance = InstanceType<typeof ElForm>;
 const loginFormRef = ref<FormInstance>();
 const loginRules = reactive({
@@ -61,38 +52,37 @@ const loginForm = reactive<Login.ReqLoginForm>({
   password: ""
 });
 
-// login
+import { useUserStore } from "@/stores/modules/user";
+const userStore = useUserStore();
+import { useRouter } from "vue-router";
+const router = useRouter();
+import { HOME_URL, TEST_ACCOUNT } from "@/config";
+import { getTimeState } from "@/utils";
+import { ElNotification } from "element-plus";
+// 登录
 const login = (formEl: FormInstance | undefined) => {
   if (!formEl) return;
   formEl.validate(async valid => {
     if (!valid) return;
-    loading.value = true;
-    try {
-      // 1.执行登录接口
-      const { data } = await loginApi({ ...loginForm, password: md5(loginForm.password) });
-      userStore.setToken(data.access_token);
-
-      // 2.添加动态路由
-      await initDynamicRouter();
-
-      // 3.清空 tabs、keepAlive 数据
-      tabsStore.setTabs([]);
-      keepAliveStore.setKeepAliveName([]);
-
-      // 4.跳转到首页
-      router.push(HOME_URL);
-      ElNotification({
-        title: getTimeState(),
-        message: "欢迎登录 Admin",
-        type: "success",
-        duration: 3000
-      });
-    } finally {
-      loading.value = false;
-    }
+    await getUserLogin(loginForm);
   });
 };
-
+const getUserLogin = async (loginForm: Login.ReqLoginForm) => {
+  try {
+    loading.value = true;
+    await userStore.UserLogin(loginForm);
+    router.push(HOME_URL);
+    ElNotification({
+      title: getTimeState(),
+      message: `欢迎登录 ${loginForm.username}`,
+      type: "success",
+      duration: 3000
+    });
+    loading.value = false;
+  } finally {
+    loading.value = false;
+  }
+};
 // resetForm
 const resetForm = (formEl: FormInstance | undefined) => {
   if (!formEl) return;

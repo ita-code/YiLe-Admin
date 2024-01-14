@@ -81,3 +81,9 @@
     width: 97% !important;
   }
 }
+.test {
+  text-align: center;
+  :deep(.el-tag) {
+    cursor: pointer;
+  }
+}

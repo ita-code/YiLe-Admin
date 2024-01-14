@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="card mb10">
+    <!-- <div class="card mb10">
       <h4 class="title">项目信息</h4>
       <el-descriptions :column="2" border>
         <el-descriptions-item label="版本号" label-align="left">
@@ -22,7 +22,7 @@
           <el-link type="primary" href="https://admin.spicyboy.cn" target="_blank"> 预览地址 </el-link>
         </el-descriptions-item>
       </el-descriptions>
-    </div>
+    </div> -->
     <div class="card mb10">
       <h4 class="title">生产环境依赖</h4>
       <el-descriptions :column="3" border>
@@ -47,8 +47,8 @@
 </template>
 
 <script setup lang="ts" name="about">
-const { pkg, lastBuildTime } = __APP_INFO__;
-const { dependencies, devDependencies, version } = pkg;
+const { pkg } = __APP_INFO__;
+const { dependencies, devDependencies } = pkg;
 </script>
 
 <style lang="scss" scoped>
