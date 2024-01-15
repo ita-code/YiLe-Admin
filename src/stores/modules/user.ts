@@ -4,7 +4,7 @@ import { Login } from "@/api/interface/index";
 
 import piniaPersistConfig from "@/stores/helper/persist";
 
-import { loginApi } from "@/api/modules/login";
+import { loginApi, logoutApi } from "@/api/modules/login";
 import { initDynamicRouter } from "@/routers/modules/dynamicRouter";
 import { useTabsStore } from "./tabs";
 import { useKeepAliveStore } from "./keepAlive";
@@ -36,11 +36,13 @@ export const useUserDefineStore = defineStore({
       await initDynamicRouter();
     },
     // 用户退出 && 清空 tabs、keepAlive 数据
-    UserLogout() {
+    async UserLogout() {
+      await logoutApi();
       const tabsStore = useTabsStore();
       const keepAliveStore = useKeepAliveStore();
       tabsStore.setTabs([]);
       keepAliveStore.setKeepAliveName([]);
+      this.setToken("");
     }
   },
   persist: piniaPersistConfig("admin-user")
