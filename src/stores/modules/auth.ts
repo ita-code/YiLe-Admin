@@ -4,7 +4,7 @@ import { getAuthButtonListApi, getAuthMenuListApi } from "@/api/modules/login";
 import { getFlatMenuList, getShowMenuList, getAllBreadcrumbList } from "@/utils";
 import { testComponentRouter } from "@/routers/modules/staticRouter";
 
-export const useAuthStore = defineStore({
+export const useAuthDefineStore = defineStore({
   id: "admin-auth",
   state: (): AuthState => ({
     // 按钮权限列表
@@ -43,3 +43,7 @@ export const useAuthStore = defineStore({
     }
   }
 });
+import pinia from "@/stores";
+export function useAuthStore() {
+  return useAuthDefineStore(pinia);
+}

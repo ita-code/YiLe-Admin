@@ -3,7 +3,7 @@ import { GlobalState } from "@/stores/interface";
 import { DEFAULT_PRIMARY } from "@/config";
 import piniaPersistConfig from "@/stores/helper/persist";
 
-export const useGlobalStore = defineStore({
+export const useGlobalDefineStores = defineStore({
   id: "admin-global",
   // 修改默认值之后，需清除 localStorage 数据
   state: (): GlobalState => ({
@@ -51,3 +51,7 @@ export const useGlobalStore = defineStore({
   },
   persist: piniaPersistConfig("admin-global")
 });
+import pinia from "@/stores";
+export function useGlobalStore() {
+  return useGlobalDefineStores(pinia);
+}

@@ -6,12 +6,12 @@ import piniaPersistConfig from "@/stores/helper/persist";
 
 import { loginApi } from "@/api/modules/login";
 import { initDynamicRouter } from "@/routers/modules/dynamicRouter";
-// import { useTabsStore } from "./tabs";
-// import { useKeepAliveStore } from "./keepAlive";
+import { useTabsStore } from "./tabs";
+import { useKeepAliveStore } from "./keepAlive";
 
 import md5 from "md5";
 
-export const useUserStore = defineStore({
+export const useUserDefineStore = defineStore({
   id: "admin-user",
   state: (): UserState => ({
     token: "",
@@ -37,11 +37,15 @@ export const useUserStore = defineStore({
     },
     // 用户退出 && 清空 tabs、keepAlive 数据
     UserLogout() {
-      // const tabsStore = useTabsStore();
-      // const keepAliveStore = useKeepAliveStore();
-      // tabsStore.setTabs([]);
-      // keepAliveStore.setKeepAliveName([]);
+      const tabsStore = useTabsStore();
+      const keepAliveStore = useKeepAliveStore();
+      tabsStore.setTabs([]);
+      keepAliveStore.setKeepAliveName([]);
     }
   },
   persist: piniaPersistConfig("admin-user")
 });
+import pinia from "@/stores";
+export function useUserStore() {
+  return useUserDefineStore(pinia);
+}
