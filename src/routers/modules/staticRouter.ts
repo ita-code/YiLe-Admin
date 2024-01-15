@@ -61,3 +61,38 @@ export const errorRouter = [
     component: () => import("@/components/ErrorMessage/404.vue")
   }
 ];
+
+/**
+ * testComponentRouter (测试组件路由)
+ */
+export const testComponentRouter = [
+  {
+    path: "/test",
+    name: "test",
+    meta: {
+      icon: "Briefcase",
+      title: "组件",
+      isLink: "",
+      isHide: false,
+      isFull: false,
+      isAffix: false,
+      isKeepAlive: true
+    },
+    children: [
+      {
+        path: "/test/virtualScroll",
+        name: "virtualScroll",
+        component: "/testComponents/testVirtualScroll",
+        meta: {
+          icon: "Menu",
+          title: "虚拟列表",
+          isLink: "",
+          isHide: false,
+          isFull: false,
+          isAffix: false,
+          isKeepAlive: true
+        }
+      }
+    ]
+  }
+];
