@@ -32,6 +32,8 @@ import I18n from "@/languages/index";
 import pinia from "@/stores";
 // errorHandler
 import errorHandler from "@/utils/errorHandler";
+// uno.css https://unocss.dev/integrations/vite
+import "virtual:uno.css";
 
 const app = createApp(App);
 

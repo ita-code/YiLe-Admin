@@ -69,6 +69,7 @@ export const testComponentRouter = [
   {
     path: "/test",
     name: "test",
+    redirect: "/test/virtualScroll",
     meta: {
       icon: "Briefcase",
       title: "组件",
