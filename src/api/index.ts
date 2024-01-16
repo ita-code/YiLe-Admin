@@ -67,7 +67,7 @@ class RequestHttp {
         tryHideFullScreenLoading();
         // 登录失效
         if (data.code == ResultEnum.OVERDUE) {
-          userStore.setToken("");
+          userStore.UserLogout();
           router.replace(LOGIN_URL);
           ElMessage.error(data.msg);
           return Promise.reject(data);
