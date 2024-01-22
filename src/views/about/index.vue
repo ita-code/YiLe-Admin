@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <div class="card mb10">
+    <!-- <div class="card mb2.5">
       <h4 class="title">项目信息</h4>
       <el-descriptions :column="2" border>
         <el-descriptions-item label="版本号" label-align="left">
@@ -23,7 +23,7 @@
         </el-descriptions-item>
       </el-descriptions>
     </div> -->
-    <div class="card mb10">
+    <div class="card mb2.5">
       <h4 class="title">生产环境依赖</h4>
       <el-descriptions :column="3" border>
         <el-descriptions-item v-for="(value, key) in dependencies" :key="key" width="400px" :label="key">
