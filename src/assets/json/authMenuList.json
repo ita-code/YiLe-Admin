@@ -248,20 +248,6 @@
           }
         },
         {
-          "path": "/system/roleManage",
-          "name": "roleManage",
-          "component": "/system/roleManage/index",
-          "meta": {
-            "icon": "Menu",
-            "title": "角色管理",
-            "isLink": "",
-            "isHide": false,
-            "isFull": false,
-            "isAffix": false,
-            "isKeepAlive": true
-          }
-        },
-        {
           "path": "/system/menuMange",
           "name": "menuMange",
           "component": "/system/menuMange/index",

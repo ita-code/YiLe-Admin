@@ -4,4 +4,7 @@
   </div>
 </template>
 
-<script setup lang="ts" name="dictManage"></script>
+<script setup lang="ts" name="dictManage">
+// import { defineOptions } from "vue";
+// defineOptions({ name: "dictManage" });
+</script>

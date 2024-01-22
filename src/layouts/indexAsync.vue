@@ -5,7 +5,8 @@
       <component :is="LayoutComponents[layout]" />
     </template>
     <template #fallback>
-      <Loading />
+      <!-- 这块加载效果待完善 -->
+      <div>这里是异步加载</div>
     </template>
   </suspense>
   <ThemeDrawer />
@@ -15,7 +16,6 @@
 import { computed, defineAsyncComponent, type Component } from "vue";
 import { LayoutType } from "@/stores/interface";
 import { useGlobalStore } from "@/stores/modules/global";
-import Loading from "@/components/Loading/index.vue";
 import ThemeDrawer from "./components/ThemeDrawer/index.vue";
 
 const LayoutComponents: Record<LayoutType, Component> = {

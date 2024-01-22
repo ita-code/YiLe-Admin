@@ -1,5 +1,4 @@
 import axios, { AxiosInstance, AxiosError, AxiosRequestConfig, InternalAxiosRequestConfig, AxiosResponse } from "axios";
-import { showFullScreenLoading, tryHideFullScreenLoading } from "@/components/Loading/fullScreen";
 import { LOGIN_URL } from "@/config";
 import { ElMessage } from "element-plus";
 import { ResultData } from "@/api/interface";
@@ -8,6 +7,7 @@ import { checkStatus } from "./helper/checkStatus";
 import { AxiosCanceler } from "./helper/axiosCancel";
 import { useUserStore } from "@/stores/modules/user";
 import router from "@/routers";
+import { useLoading } from "@/components/Loading";
 
 export interface CustomAxiosRequestConfig extends InternalAxiosRequestConfig {
   loading?: boolean;
@@ -30,7 +30,9 @@ class RequestHttp {
   public constructor(config: AxiosRequestConfig) {
     // instantiation
     this.service = axios.create(config);
-
+    const [openFullLoading, closeFullLoading] = useLoading({
+      tip: "加载中"
+    });
     /**
      * @description 请求拦截器
      * 客户端发送请求 -> [请求拦截器] -> 服务器
@@ -44,7 +46,7 @@ class RequestHttp {
         config.cancel && axiosCanceler.addPending(config);
         // 当前请求不需要显示 loading，在 api 服务中通过指定的第三个参数: { loading: false } 来控制
         config.loading ?? (config.loading = true);
-        config.loading && showFullScreenLoading();
+        config.loading && openFullLoading();
         if (config.headers && typeof config.headers.set === "function") {
           config.headers.set("x-access-token", userStore.token);
         }
@@ -64,7 +66,7 @@ class RequestHttp {
         const { data, config } = response;
         const userStore = useUserStore();
         axiosCanceler.removePending(config);
-        tryHideFullScreenLoading();
+        closeFullLoading();
         // 登录失效
         if (data.code == ResultEnum.OVERDUE) {
           userStore.UserLogout();
