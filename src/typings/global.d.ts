@@ -7,7 +7,7 @@ declare namespace Menu {
     redirect?: string;
     meta: MetaProps;
     children?: MenuOptions[];
-    prop?: Recordable;
+    props?: Recordable;
   }
   interface MetaProps {
     icon: string;

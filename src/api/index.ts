@@ -84,7 +84,7 @@ class RequestHttp {
       },
       async (error: AxiosError) => {
         const { response } = error;
-        tryHideFullScreenLoading();
+        closeFullLoading();
         // 请求超时 && 网络错误单独判断，没有 response
         if (error.message.indexOf("timeout") !== -1) ElMessage.error("请求超时！请您稍后重试");
         if (error.message.indexOf("Network Error") !== -1) ElMessage.error("网络错误！请您稍后重试");

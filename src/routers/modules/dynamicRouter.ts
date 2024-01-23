@@ -59,7 +59,7 @@ function dynamicImport(dynamicViewsModules: Record<string, () => Promise<Recorda
     return IFrame;
   }
   if (module) return module;
-  menu.prop = {
+  menu.props = {
     subTitle: `在src/views/下找不到${menu.component}.vue, 请自行创建!`
   };
   return ERROR_PAGE;
