@@ -3,6 +3,9 @@
 // 首页地址（默认）
 export const HOME_URL: string = "/home/index";
 
+// 异常页面地址（默认）
+export const ERROR_PAGE: () => Promise<Recordable> = () => import("@/components/ErrorPage/index.vue");
+
 // 登录页地址（默认）
 export const LOGIN_URL: string = "/login";
 

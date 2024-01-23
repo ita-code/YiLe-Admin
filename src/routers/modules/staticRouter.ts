@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from "vue-router";
-import { HOME_URL, LOGIN_URL } from "@/config";
+import { HOME_URL, LOGIN_URL, ERROR_PAGE } from "@/config";
 
 /**
  * staticRouter (静态路由)
@@ -34,7 +34,7 @@ export const errorRouter = [
   {
     path: "/403",
     name: "403",
-    component: () => import("@/components/ErrorPage/index.vue"),
+    component: ERROR_PAGE,
     meta: {
       title: "403页面"
     },
@@ -45,7 +45,7 @@ export const errorRouter = [
   {
     path: "/404",
     name: "404",
-    component: () => import("@/components/ErrorPage/index.vue"),
+    component: ERROR_PAGE,
     meta: {
       title: "404页面"
     },
@@ -56,7 +56,7 @@ export const errorRouter = [
   {
     path: "/500",
     name: "500",
-    component: () => import("@/components/ErrorPage/index.vue"),
+    component: ERROR_PAGE,
     meta: {
       title: "500页面"
     },
@@ -67,7 +67,7 @@ export const errorRouter = [
   // Resolve refresh page, route warnings
   {
     path: "/:pathMatch(.*)*",
-    component: () => import("@/components/ErrorPage/index.vue")
+    component: ERROR_PAGE
   }
 ];
 

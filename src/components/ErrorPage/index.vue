@@ -6,6 +6,7 @@
       <h4>{{ getMapValue.subTitle }}</h4>
       <el-button
         type="primary"
+        v-if="getMapValue.btnText"
         @click="
           () => {
             getMapValue.handler();

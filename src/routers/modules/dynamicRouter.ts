@@ -1,5 +1,5 @@
 import router from "@/routers/index";
-import { LOGIN_URL } from "@/config";
+import { LOGIN_URL, ERROR_PAGE } from "@/config";
 import { RouteRecordRaw } from "vue-router";
 import { ElNotification } from "element-plus";
 import { useUserStore } from "@/stores/modules/user";
@@ -36,8 +36,6 @@ export const initDynamicRouter = async () => {
     authStore.flatMenuListGet.forEach(item => {
       item.children && delete item.children;
       item.component = dynamicImport(modules, item);
-
-      // 是否为全屏菜单
       if (item.meta.isFull) {
         router.addRoute(item as unknown as RouteRecordRaw);
       } else {
@@ -61,7 +59,8 @@ function dynamicImport(dynamicViewsModules: Record<string, () => Promise<Recorda
     return IFrame;
   }
   if (module) return module;
-  console.log("打印日志:module=>", module);
-
-  console.warn("在src/views/下找不到`" + menu.component + ".vue`, 请自行创建!");
+  menu.prop = {
+    subTitle: `在src/views/下找不到${menu.component}.vue, 请自行创建!`
+  };
+  return ERROR_PAGE;
 }
