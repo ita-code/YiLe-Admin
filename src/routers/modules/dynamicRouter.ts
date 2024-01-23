@@ -5,11 +5,6 @@ import { ElNotification } from "element-plus";
 import { useUserStore } from "@/stores/modules/user";
 import { useAuthStore } from "@/stores/modules/auth";
 
-// 引入 views 文件夹下所有 vue 文件
-const modules = import.meta.glob("@/views/**/*.vue");
-
-const IFrame = () => import("@/views/iframe/FrameBlank.vue");
-
 /**
  * @description 初始化动态路由
  */
@@ -36,14 +31,12 @@ export const initDynamicRouter = async () => {
     }
 
     // 3.添加动态路由
+    // 引入 views 文件夹下所有 vue 文件
+    const modules: Record<string, () => Promise<Recordable>> = import.meta.glob("@/views/**/*.vue");
     authStore.flatMenuListGet.forEach(item => {
       item.children && delete item.children;
-      if (item.component && typeof item.component == "string") {
-        item.component = modules["/src/views" + item.component + ".vue"];
-      } else if (item.meta.isIframe) {
-        //对于iframe页面，需要特殊处理
-        item.component = IFrame;
-      }
+      item.component = dynamicImport(modules, item);
+
       // 是否为全屏菜单
       if (item.meta.isFull) {
         router.addRoute(item as unknown as RouteRecordRaw);
@@ -58,3 +51,17 @@ export const initDynamicRouter = async () => {
     return Promise.reject(error);
   }
 };
+const IFrame = () => import("@/views/iframe/FrameBlank.vue");
+
+function dynamicImport(dynamicViewsModules: Record<string, () => Promise<Recordable>>, menu: Menu.MenuOptions) {
+  let module: (() => Promise<Recordable>) | undefined = undefined;
+  if (menu?.component && typeof menu?.component == "string") {
+    module = dynamicViewsModules["/src/views" + menu?.component + ".vue"];
+  } else if (menu.meta.isIframe) {
+    return IFrame;
+  }
+  if (module) return module;
+  console.log("打印日志:module=>", module);
+
+  console.warn("在src/views/下找不到`" + menu.component + ".vue`, 请自行创建!");
+}

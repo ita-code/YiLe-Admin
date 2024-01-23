@@ -34,31 +34,40 @@ export const errorRouter = [
   {
     path: "/403",
     name: "403",
-    component: () => import("@/components/ErrorMessage/403.vue"),
+    component: () => import("@/components/ErrorPage/index.vue"),
     meta: {
       title: "403页面"
+    },
+    props: {
+      status: 403
     }
   },
   {
     path: "/404",
     name: "404",
-    component: () => import("@/components/ErrorMessage/404.vue"),
+    component: () => import("@/components/ErrorPage/index.vue"),
     meta: {
       title: "404页面"
+    },
+    props: {
+      status: 404
     }
   },
   {
     path: "/500",
     name: "500",
-    component: () => import("@/components/ErrorMessage/500.vue"),
+    component: () => import("@/components/ErrorPage/index.vue"),
     meta: {
       title: "500页面"
+    },
+    props: {
+      status: 500
     }
   },
   // Resolve refresh page, route warnings
   {
     path: "/:pathMatch(.*)*",
-    component: () => import("@/components/ErrorMessage/404.vue")
+    component: () => import("@/components/ErrorPage/index.vue")
   }
 ];
 
@@ -144,6 +153,20 @@ export const docFrameRouter = [
       isAffix: false,
       isKeepAlive: true,
       isIframe: "http://localhost:1125"
+    }
+  },
+  {
+    path: "/test3/index",
+    name: "test3",
+    component: "testComponents/testPage",
+    meta: {
+      icon: "HomeFilled",
+      title: "测试页面",
+      isLink: "",
+      isHide: false,
+      isFull: false,
+      isAffix: false,
+      isKeepAlive: true
     }
   }
 ];
