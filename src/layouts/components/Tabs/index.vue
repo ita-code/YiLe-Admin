@@ -53,7 +53,8 @@ watch(
       path: route.fullPath,
       name: route.name as string,
       close: !route.meta.isAffix,
-      isKeepAlive: route.meta.isKeepAlive as boolean
+      isKeepAlive: route.meta.isKeepAlive as boolean,
+      frameSrc: route.meta?.isIframe as string
     };
     tabStore.addTabs(tabsParams);
   },
@@ -70,7 +71,8 @@ const initTabs = () => {
         path: item.path,
         name: item.name,
         close: !item.meta.isAffix,
-        isKeepAlive: item.meta.isKeepAlive
+        isKeepAlive: item.meta.isKeepAlive,
+        frameSrc: item.meta?.isIframe
       };
       tabStore.addTabs(tabsParams);
     }

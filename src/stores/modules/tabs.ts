@@ -7,7 +7,7 @@ import piniaPersistConfig from "@/stores/helper/persist";
 
 const keepAliveStore = useKeepAliveStore();
 
-export const useTabsDefineStores = defineStore({
+const useTabsDefineStores = defineStore({
   id: "admin-tabs",
   state: (): TabsState => ({
     tabsMenuList: []

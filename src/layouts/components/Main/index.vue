@@ -10,7 +10,7 @@
       </transition>
     </router-view>
     <transition appear name="fade-transform" mode="out-in">
-      <iframe-cache-view></iframe-cache-view>
+      <FrameLayout></FrameLayout>
     </transition>
   </el-main>
   <el-footer v-show="footer">
@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import iframeCacheView from "./IframeCacheView.vue";
+import FrameLayout from "@/layouts/components/IFrame/index.vue";
 import { ref, onBeforeUnmount, provide, watch } from "vue";
 import { storeToRefs } from "pinia";
 import { useDebounceFn } from "@vueuse/core";

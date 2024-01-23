@@ -39,6 +39,7 @@ export interface TabsMenuProps {
   name: string;
   close: boolean;
   isKeepAlive: boolean;
+  frameSrc?: string;
 }
 
 /* TabsState */

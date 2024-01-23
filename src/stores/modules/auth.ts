@@ -2,9 +2,9 @@ import { defineStore } from "pinia";
 import { AuthState } from "@/stores/interface";
 import { getAuthButtonListApi, getAuthMenuListApi } from "@/api/modules/login";
 import { getFlatMenuList, getShowMenuList, getAllBreadcrumbList } from "@/utils";
-import { testComponentRouter } from "@/routers/modules/staticRouter";
+import { testComponentRouter, docFrameRouter } from "@/routers/modules/staticRouter";
 
-export const useAuthDefineStore = defineStore({
+const useAuthDefineStore = defineStore({
   id: "admin-auth",
   state: (): AuthState => ({
     // 按钮权限列表
@@ -35,7 +35,7 @@ export const useAuthDefineStore = defineStore({
     // Get AuthMenuList
     async getAuthMenuList() {
       const { data } = await getAuthMenuListApi();
-      this.authMenuList = [...data, ...testComponentRouter];
+      this.authMenuList = [...data, ...testComponentRouter, ...docFrameRouter];
     },
     // Set RouteName
     async setRouteName(name: string) {

@@ -12,11 +12,12 @@ declare namespace Menu {
     icon: string;
     title: string;
     activeMenu?: string;
-    isLink?: string; //是否外链
+    isLink?: string; //外链地址
     isHide: boolean; //是否隐藏
     isFull: boolean; //是否全屏显示
     isAffix: boolean; //是否固定在tagsView
     isKeepAlive: boolean; //是否缓存
+    isIframe?: string; //内嵌窗口
   }
 }
 

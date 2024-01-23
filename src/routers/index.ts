@@ -28,6 +28,7 @@ const routerMode = {
  * @param meta.isFull ==> 菜单是否全屏 (示例：数据大屏页面)
  * @param meta.isAffix ==> 菜单是否固定在标签页中 (首页通常是固定项)
  * @param meta.isKeepAlive ==> 当前路由是否缓存
+ * @param meta.isIframe ==> 是否内嵌窗口 (示例：数据大屏页面)
  * */
 const router = createRouter({
   history: routerMode[mode](),

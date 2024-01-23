@@ -111,3 +111,39 @@ export const testComponentRouter = [
     ]
   }
 ];
+
+/**
+ * docFrameRouter (文档内嵌路由)
+ * @description: iframe嵌入文档
+ * @param {string} isIframe - iframe地址
+ */
+export const docFrameRouter = [
+  {
+    path: "/test1/index",
+    name: "test1",
+    meta: {
+      icon: "HomeFilled",
+      title: "缓存IFrom1",
+      isLink: "",
+      isHide: false,
+      isFull: false,
+      isAffix: false,
+      isKeepAlive: true,
+      isIframe: "https://cn.bing.com/"
+    }
+  },
+  {
+    path: "/test2/index",
+    name: "test2",
+    meta: {
+      icon: "HomeFilled",
+      title: "缓存IFrom2",
+      isLink: "",
+      isHide: false,
+      isFull: false,
+      isAffix: false,
+      isKeepAlive: true,
+      isIframe: "http://localhost:1125"
+    }
+  }
+];

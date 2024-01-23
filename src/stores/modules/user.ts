@@ -11,7 +11,7 @@ import { useKeepAliveStore } from "./keepAlive";
 
 import md5 from "md5";
 
-export const useUserDefineStore = defineStore({
+const useUserDefineStore = defineStore({
   id: "admin-user",
   state: (): UserState => ({
     token: "",

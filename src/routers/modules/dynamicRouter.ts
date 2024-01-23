@@ -8,6 +8,8 @@ import { useAuthStore } from "@/stores/modules/auth";
 // 引入 views 文件夹下所有 vue 文件
 const modules = import.meta.glob("@/views/**/*.vue");
 
+const IFrame = () => import("@/views/iframe/FrameBlank.vue");
+
 /**
  * @description 初始化动态路由
  */
@@ -38,6 +40,9 @@ export const initDynamicRouter = async () => {
       item.children && delete item.children;
       if (item.component && typeof item.component == "string") {
         item.component = modules["/src/views" + item.component + ".vue"];
+      } else if (item.meta.isIframe) {
+        //对于iframe页面，需要特殊处理
+        item.component = IFrame;
       }
       // 是否为全屏菜单
       if (item.meta.isFull) {

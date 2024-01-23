@@ -43,5 +43,4 @@ app.config.errorHandler = errorHandler;
 Object.keys(Icons).forEach(key => {
   app.component(key, Icons[key as keyof typeof Icons]);
 });
-import iframePage from "@/views/iframe/index";
-app.use(ElementPlus).use(iframePage).use(directives).use(router).use(I18n).use(pinia).mount("#app");
+app.use(ElementPlus).use(directives).use(router).use(I18n).use(pinia).mount("#app");

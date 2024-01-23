@@ -60,34 +60,6 @@
       ]
     },
     {
-      "path": "/test1/index",
-      "name": "test1",
-      "isIframe": true,
-      "meta": {
-        "icon": "HomeFilled",
-        "title": "缓存IFrom1",
-        "isLink": "",
-        "isHide": false,
-        "isFull": false,
-        "isAffix": false,
-        "isKeepAlive": true
-      }
-    },
-    {
-      "path": "/test2/index",
-      "name": "test2",
-      "isIframe": true,
-      "meta": {
-        "icon": "HomeFilled",
-        "title": "缓存IFrom2",
-        "isLink": "",
-        "isHide": false,
-        "isFull": false,
-        "isAffix": false,
-        "isKeepAlive": true
-      }
-    },
-    {
       "path": "/menu",
       "name": "menu",
       "redirect": "/menu/menu1",
