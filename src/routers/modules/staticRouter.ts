@@ -116,6 +116,20 @@ export const testComponentRouter = [
           isAffix: false,
           isKeepAlive: true
         }
+      },
+      {
+        path: "/test3/index",
+        name: "test3",
+        component: "testComponents/testPage",
+        meta: {
+          icon: "HomeFilled",
+          title: "测试页面",
+          isLink: "",
+          isHide: false,
+          isFull: false,
+          isAffix: false,
+          isKeepAlive: true
+        }
       }
     ]
   }
@@ -127,46 +141,32 @@ export const testComponentRouter = [
  * @param {string} isIframe - iframe地址
  */
 export const docFrameRouter = [
-  {
-    path: "/test1/index",
-    name: "test1",
-    meta: {
-      icon: "HomeFilled",
-      title: "缓存IFrom1",
-      isLink: "",
-      isHide: false,
-      isFull: false,
-      isAffix: false,
-      isKeepAlive: true,
-      isIframe: "https://cn.bing.com/"
-    }
-  },
-  {
-    path: "/test2/index",
-    name: "test2",
-    meta: {
-      icon: "HomeFilled",
-      title: "缓存IFrom2",
-      isLink: "",
-      isHide: false,
-      isFull: false,
-      isAffix: false,
-      isKeepAlive: true,
-      isIframe: "http://localhost:1125"
-    }
-  },
-  {
-    path: "/test3/index",
-    name: "test3",
-    component: "testComponents/testPage",
-    meta: {
-      icon: "HomeFilled",
-      title: "测试页面",
-      isLink: "",
-      isHide: false,
-      isFull: false,
-      isAffix: false,
-      isKeepAlive: true
-    }
-  }
+  // {
+  //   path: "/test1/index",
+  //   name: "test1",
+  //   meta: {
+  //     icon: "HomeFilled",
+  //     title: "缓存IFrom1",
+  //     isLink: "",
+  //     isHide: false,
+  //     isFull: false,
+  //     isAffix: false,
+  //     isKeepAlive: true,
+  //     isIframe: "https://cn.bing.com/"
+  //   }
+  // },
+  // {
+  //   path: "/test2/index",
+  //   name: "test2",
+  //   meta: {
+  //     icon: "HomeFilled",
+  //     title: "缓存IFrom2",
+  //     isLink: "",
+  //     isHide: false,
+  //     isFull: false,
+  //     isAffix: false,
+  //     isKeepAlive: true,
+  //     isIframe: "http://localhost:1125"
+  //   }
+  // },
 ];
