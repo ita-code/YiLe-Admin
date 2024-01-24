@@ -5,7 +5,3 @@
 </template>
 
 <script setup lang="ts" name="embedded"></script>
-
-<style scoped lang="scss">
-@import "./index.scss";
-</style>

@@ -98,7 +98,7 @@ export default defineComponent({
       if (!wrapEl) {
         return 0;
       }
-      const height = parseInt(props.height || 0, 10) || wrapEl.clientHeight;
+      const height = parseInt(String(props.height) ?? 0, 10) || wrapEl.clientHeight;
 
       return first + Math.ceil(height / unref(getItemHeightRef));
     }

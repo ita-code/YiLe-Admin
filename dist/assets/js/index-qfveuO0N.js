@@ -1,0 +1,1 @@
+import{d as e,o as t,f as s,h as o}from"./index-e7XJbop6.js";const a={class:"card content-box"},c=o("span",{class:"text"}," 字典管理（待完善） 🍓🍇🍈🍉",-1),n=[c],_=e({name:"dictManage"}),l=e({..._,setup(d){return(r,i)=>(t(),s("div",a,n))}});export{l as default};

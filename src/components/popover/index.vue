@@ -32,7 +32,7 @@ const PROP_BOTTOM_RIGHT = "bottom-right";
 const placementEnum = [PROP_TOP_LEFT, PROP_TOP_RIGHT, PROP_BOTTOM_LEFT, PROP_BOTTOM_RIGHT];
 </script>
 
-<script setup>
+<script setup lang="ts">
 import { ref, watch, nextTick } from "vue";
 
 const props = defineProps({
@@ -40,7 +40,7 @@ const props = defineProps({
   placement: {
     type: String,
     default: "bottom-left",
-    validator(val) {
+    validator(val: string) {
       const result = placementEnum.includes(val);
       if (!result) {
         throw new Error(`你的 placement 必须是 ${placementEnum.join("、")} 中的一个`);
@@ -54,7 +54,7 @@ const props = defineProps({
 const isVisible = ref(false);
 
 // 控制延迟关闭
-let timeout = null;
+let timeout: any = null;
 /**
  * 鼠标移入的触发行为
  */
@@ -92,7 +92,7 @@ const useElementSize = target => {
 /**
  * 计算弹层位置
  */
-const contentStyle = ref({
+const contentStyle = ref<any>({
   top: 0,
   left: 0
 });
