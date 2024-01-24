@@ -129,17 +129,18 @@ const handleConfirm = () => {
 .fade-enter-from {
   opacity: 0;
 }
-
 .up-enter-active,
 .up-leave-active {
   transition: all v-bind(actionDuration);
 }
-
 .up-leave-to,
 .up-enter-from {
   opacity: 0;
+
   /* 水平居中 */
+
   /* 即使元素中指定了translateX = -50%，但是在动画开始和结束，也需要指定他的位置 */
+
   /* transform: translateY(100px); */
   transform: translate(-50%, 100px);
 }

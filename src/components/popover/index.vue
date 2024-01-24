@@ -142,16 +142,14 @@ watch(isVisible, val => {
     opacity 0.3s,
     transform 0.3s;
 }
-
 .slide-leave-active {
   transition:
     opacity 0.3s,
     transform 0.3s;
 }
-
 .slide-enter-from,
 .slide-leave-to {
-  transform: translateY(20px);
   opacity: 0;
+  transform: translateY(20px);
 }
 </style>

@@ -42,7 +42,6 @@ const data = (() => {
     justify-content: center;
     margin: 0 30%;
   }
-
   &__item {
     height: 40px;
     padding: 0 20px;

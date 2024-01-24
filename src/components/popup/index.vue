@@ -54,6 +54,7 @@ watch(
 .fade-leave-active {
   transition: all 0.3s;
 }
+
 /* 准备进入和离开 */
 .fade-enter-from,
 .fade-leave-to {
@@ -65,11 +66,13 @@ watch(
 .popup-down-up-leave-active {
   transition: all 0.3s;
 }
+
 /* 内容准备进入和离开 */
 .popup-down-up-enter-from,
 .popup-down-up-leave-to {
   transform: translate(0, 100%);
 }
+
 /* .hm-popup {
   width: 100%;
   height: 100%;

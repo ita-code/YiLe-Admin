@@ -1,15 +1,13 @@
 .virtual-scroll {
-  display: block;
   position: relative;
+  display: block;
   flex: 1 1 auto;
   width: 100%;
   max-width: 100%;
   overflow: auto;
-
   &__container {
     display: block;
   }
-
   &__item {
     position: absolute;
     right: 0;
