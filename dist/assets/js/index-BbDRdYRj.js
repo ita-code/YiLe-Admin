@@ -1,1 +1,0 @@
-import{_ as e,o as s,f as t,h as c}from"./index-e7XJbop6.js";const o={},n={class:"card content-box"},a=c("span",{class:"text"}," 部门管理（待完善） 🍓🍇🍈🍉",-1),_=[a];function r(d,i){return s(),t("div",n,_)}const l=e(o,[["render",r]]);export{l as default};
