@@ -1,11 +1,12 @@
 <template>
-  <div class="not-container">
-    <img v-if="getMapValue.errorImg" :src="getMapValue.errorImg" class="not-img" :alt="getMapValue.status" />
-    <div class="not-detail">
-      <h2>{{ getMapValue.status }}</h2>
-      <h4>{{ getMapValue.subTitle }}</h4>
+  <div class="flex-center w-full h-full">
+    <img v-if="getMapValue.errorImg" :src="getMapValue.errorImg" class="mr30" :alt="getMapValue.status" />
+    <div class="flex flex-col">
+      <h2 class="font-size-12 m0 p0">{{ status ?? getMapValue.status }}</h2>
+      <h4 class="mx-0 mt-8 mb-5 text-5 font-normal text-var(--el-text-color-regular)">{{ subTitle ?? getMapValue.subTitle }}</h4>
       <el-button
         type="primary"
+        class="w-25"
         v-if="getMapValue.btnText"
         @click="
           () => {
@@ -48,12 +49,10 @@ const props = defineProps({
   subTitle: {
     type: String as PropType<string>,
     default: ""
-  },
-  full: {
-    type: Boolean as PropType<boolean>,
-    default: false
   }
 });
+
+const { subTitle, status } = props;
 
 const statusMapRef = ref(new Map<string | number, MapValue>());
 
@@ -106,7 +105,3 @@ unref(statusMapRef).set(ExceptionEnum.PAGE_NOT_DATA, {
   handler: () => router.back()
 });
 </script>
-
-<style scoped lang="scss">
-@import "./index.scss";
-</style>

@@ -120,9 +120,9 @@ export const testComponentRouter = [
       {
         path: "/test3/index",
         name: "test3",
-        component: "testComponents/testPage",
+        component: "/testComponents/testPage",
         meta: {
-          icon: "HomeFilled",
+          icon: "Menu",
           title: "测试页面",
           isLink: "",
           isHide: false,
