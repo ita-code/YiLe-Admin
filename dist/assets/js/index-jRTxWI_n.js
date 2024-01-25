@@ -1,1 +1,0 @@
-import{_ as s,o,f as c,p as t,l as a,h as _}from"./index--mh7cVrB.js";const n="/ita-admin/assets/png/welcome-FRWAtVij.png",d={},p=e=>(t("data-v-70338efb"),e=e(),a(),e),r={class:"home card"},i=p(()=>_("img",{class:"home-bg",src:n,alt:"welcome"},null,-1)),l=[i];function m(e,f){return o(),c("div",r,l)}const u=s(d,[["render",m],["__scopeId","data-v-70338efb"]]);export{u as default};

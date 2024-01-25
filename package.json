@@ -1,9 +1,9 @@
 {
-  "name": "admin-template",
+  "name": "yile-admin",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "admin-template open source management system",
+  "description": "YiLe-Admin open source management system",
   "author": {
     "name": "ita",
     "email": "ita201125@qq.com",

@@ -71,7 +71,7 @@ pnpm commit
 ### 文件资源目录 📚
 
 ```text
-Admin-Template
+YiLe-Admin
 ├─ .husky                  # husky 配置文件
 ├─ .vscode                 # VSCode 推荐配置
 ├─ build                   # Vite 配置项

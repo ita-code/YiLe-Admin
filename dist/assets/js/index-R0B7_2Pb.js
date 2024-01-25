@@ -1,1 +1,0 @@
-import{_ as e,o as c,f as s,h as o}from"./index--mh7cVrB.js";const t={},n={class:"card content-box"},r=o("iframe",{src:"https://cn.bing.com/",frameborder:"0",class:"full-iframe"},null,-1),a=[r];function _(d,f){return c(),s("div",n,a)}const l=e(t,[["render",_]]);export{l as default};
