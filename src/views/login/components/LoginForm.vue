@@ -25,9 +25,9 @@
       登录
     </el-button>
   </div>
-  <div class="test" v-if="env.VITE_USER_NODE_ENV === 'development'">
+  <div class="test" v-if="['development', 'production'].includes(env.VITE_USER_NODE_ENV)">
     <el-divider content-position="center">演示账号一键登录</el-divider>
-    <el-tag effect="plain" class="ml10 mr10" v-for="item in TEST_ACCOUNT" :key="item.username" @click="getUserLogin(item)">
+    <el-tag effect="plain" class="ml2 mr2" v-for="item in TEST_ACCOUNT" :key="item.username" @click="getUserLogin(item)">
       {{ item.username }}
     </el-tag>
   </div>
