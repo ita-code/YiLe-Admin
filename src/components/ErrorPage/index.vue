@@ -2,8 +2,8 @@
   <div class="flex-center w-full h-full">
     <img v-if="getMapValue.errorImg" :src="getMapValue.errorImg" class="mr30" :alt="getMapValue.status" />
     <div class="flex flex-col">
-      <h2 class="font-size-12 m0 p0">{{ status ?? getMapValue.status }}</h2>
-      <h4 class="mx-0 mt-8 mb-5 text-5 font-normal text-var(--el-text-color-regular)">{{ subTitle ?? getMapValue.subTitle }}</h4>
+      <h2 class="font-size-12 m0 p0">{{ status || getMapValue.status }}</h2>
+      <h4 class="mx-0 mt-8 mb-5 text-5 font-normal text-var(--el-text-color-regular)">{{ subTitle || getMapValue.subTitle }}</h4>
       <el-button
         type="primary"
         class="w-25"
