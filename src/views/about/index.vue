@@ -10,10 +10,10 @@
           <el-tag>{{ lastBuildTime }}</el-tag>
         </el-descriptions-item>
         <el-descriptions-item label="Gitee" label-align="left">
-          <el-link type="primary" href="https://gitee.com/HalseySpicy/Geeker-Admin" target="_blank"> Gitee </el-link>
+          <el-link type="primary" href="https://github.com/ita-code/YiLe-Admin" target="_blank"> Gitee </el-link>
         </el-descriptions-item>
         <el-descriptions-item label="Github" label-align="left">
-          <el-link type="primary" href="https://github.com/HalseySpicy/Geeker-Admin" target="_blank"> Github </el-link>
+          <el-link type="primary" href="https://github.com/ita-code/YiLe-Admin" target="_blank"> Github </el-link>
         </el-descriptions-item>
         <el-descriptions-item label="文档地址" label-align="left">
           <el-link type="primary" href="https://docs.spicyboy.cn" target="_blank"> 文档地址 </el-link>
