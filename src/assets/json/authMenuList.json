@@ -46,15 +46,15 @@
         {
           "path": "/dashboard/embedded",
           "name": "embedded",
-          "component": "/dashboard/embedded/index",
           "meta": {
             "icon": "Menu",
-            "title": "内嵌页面",
+            "title": "bing",
             "isLink": "",
             "isHide": false,
             "isFull": false,
             "isAffix": false,
-            "isKeepAlive": true
+            "isKeepAlive": true,
+            "isIframe": "https://cn.bing.com/"
           }
         }
       ]
