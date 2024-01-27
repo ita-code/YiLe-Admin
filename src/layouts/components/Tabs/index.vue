@@ -18,7 +18,6 @@
 
 <script setup lang="ts">
 import Sortable from "sortablejs";
-import { ref, computed, watch, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useGlobalStore } from "@/stores/modules/global";
 import { useTabsStore } from "@/stores/modules/tabs";

@@ -14,7 +14,6 @@
   </section>
 </template>
 <script lang="ts" setup>
-import type { PropType } from "vue";
 import { SizeEnum } from "./typing";
 
 defineOptions({ name: "Loading" });

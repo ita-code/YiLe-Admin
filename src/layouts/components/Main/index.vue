@@ -20,7 +20,6 @@
 
 <script setup lang="ts">
 import FrameLayout from "@/layouts/components/IFrame/index.vue";
-import { ref, onBeforeUnmount, provide, watch } from "vue";
 import { storeToRefs } from "pinia";
 import { useDebounceFn } from "@vueuse/core";
 import { useGlobalStore } from "@/stores/modules/global";

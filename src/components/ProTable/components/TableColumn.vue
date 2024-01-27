@@ -3,7 +3,6 @@
 </template>
 
 <script setup lang="tsx" name="TableColumn">
-import { inject, ref, useSlots } from "vue";
 import { ColumnProps, RenderScope, HeaderRenderScope } from "@/components/ProTable/interface";
 import { filterEnum, formatValue, handleProp, handleRowAccordingToProp } from "@/utils";
 

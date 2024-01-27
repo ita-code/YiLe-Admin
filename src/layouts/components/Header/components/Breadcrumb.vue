@@ -20,7 +20,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
 import { HOME_URL } from "@/config";
 import { useRoute, useRouter } from "vue-router";
 import { ArrowRight } from "@element-plus/icons-vue";

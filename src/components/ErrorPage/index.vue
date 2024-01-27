@@ -22,7 +22,6 @@
 
 <script setup lang="ts" name="ErrorPage">
 import { ExceptionEnum } from "@/enums/exceptionEnum";
-import type { PropType } from "vue";
 
 import { useRouter, useRoute } from "vue-router";
 

@@ -1,5 +1,4 @@
 import { Table } from "./interface";
-import { reactive, computed, toRefs } from "vue";
 
 /**
  * @description table 页面操作方法封装

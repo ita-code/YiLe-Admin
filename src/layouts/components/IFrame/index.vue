@@ -10,7 +10,6 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { unref, computed } from "vue";
 import FramePage from "@/views/iframe/index.vue";
 
 import { useFrameKeepAlive } from "./useFrameKeepAlive";

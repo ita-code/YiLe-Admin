@@ -29,7 +29,6 @@
 </template>
 
 <script setup lang="ts" name="SelectIcon">
-import { ref, computed } from "vue";
 import * as Icons from "@element-plus/icons-vue";
 
 interface SelectIconProps {

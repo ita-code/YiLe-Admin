@@ -1,4 +1,3 @@
-import { App, Directive } from "vue";
 import auth from "./modules/auth";
 import copy from "./modules/copy";
 import waterMarker from "./modules/waterMarker";
