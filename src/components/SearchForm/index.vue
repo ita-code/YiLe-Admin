@@ -33,7 +33,6 @@
   </div>
 </template>
 <script setup lang="ts" name="SearchForm">
-import { computed, ref } from "vue";
 import { ColumnProps } from "@/components/ProTable/interface";
 import { BreakPoint } from "@/components/Grid/interface";
 import { Delete, Search, ArrowDown, ArrowUp } from "@element-plus/icons-vue";

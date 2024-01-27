@@ -6,7 +6,6 @@
 </template>
 
 <script setup lang="ts" name="menu23">
-import { ref } from "vue";
 const value = ref("");
 </script>
 

@@ -22,7 +22,6 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ElButton, ElDivider } from "element-plus";
 import { Loading, useLoading } from "@/components/Loading";
 
 const wrapEl = ref<ElRef>(null);

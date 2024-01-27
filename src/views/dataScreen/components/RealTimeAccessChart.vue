@@ -15,7 +15,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 import { ECOption } from "@/components/ECharts/config";
 import ECharts from "@/components/ECharts/index.vue";
 

@@ -23,7 +23,6 @@
 </template>
 
 <script setup lang="ts" name="testVirtualScroll">
-import { ElDivider } from "element-plus";
 import VirtualScroll from "@/components/VirtualScroll/index.vue";
 const data = (() => {
   const arr: any[] = [];

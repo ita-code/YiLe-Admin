@@ -21,7 +21,6 @@
 </template>
 
 <script setup lang="ts" name="ErrorPage">
-import { ref, computed, unref } from "vue";
 import { ExceptionEnum } from "@/enums/exceptionEnum";
 import type { PropType } from "vue";
 

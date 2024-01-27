@@ -24,7 +24,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 import { LOGIN_URL } from "@/config";
 import { useRouter } from "vue-router";
 import { useUserStore } from "@/stores/modules/user";

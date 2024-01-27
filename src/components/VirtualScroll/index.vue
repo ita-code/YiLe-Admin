@@ -1,5 +1,4 @@
 <script lang="tsx">
-import { defineComponent, computed, ref, unref, reactive, onMounted, watch, nextTick, CSSProperties, PropType } from "vue";
 import { useEventListener } from "@/hooks/useEventListener";
 
 type NumberOrNumberString = PropType<string | number | undefined>;

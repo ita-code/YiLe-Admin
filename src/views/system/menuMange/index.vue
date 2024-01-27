@@ -21,7 +21,6 @@
 </template>
 
 <script setup lang="ts" name="menuMange">
-import { ref } from "vue";
 import { ColumnProps } from "@/components/ProTable/interface";
 import { Delete, EditPen, CirclePlus } from "@element-plus/icons-vue";
 import authMenuList from "@/assets/json/authMenuList.json";

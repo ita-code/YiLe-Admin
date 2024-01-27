@@ -58,7 +58,6 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 import { HOME_URL, TEST_ACCOUNT } from "@/config";
 import { getTimeState } from "@/utils";
-import { ElNotification } from "element-plus";
 // 登录
 const login = (formEl: FormInstance | undefined) => {
   if (!formEl) return;

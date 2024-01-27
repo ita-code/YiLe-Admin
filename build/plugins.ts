@@ -15,7 +15,8 @@ import vueSetupExtend from "unplugin-vue-setup-extend-plus/vite";
 import Unocss from "unocss/vite";
 
 import createAutoImport from "./auto-import";
-
+import Components from "unplugin-vue-components/vite";
+import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 /**
  * 创建 vite 插件
  * @param viteEnv
@@ -52,7 +53,10 @@ export const createVitePlugins = (viteEnv: ViteEnv): (PluginOption | PluginOptio
     // 是否生成包预览，分析依赖包大小做优化处理
     VITE_REPORT && (visualizer({ filename: "stats.html", gzipSize: true, brotliSize: true }) as PluginOption),
     // 按需自动导入
-    createAutoImport()
+    createAutoImport(),
+    Components({
+      resolvers: [ElementPlusResolver()]
+    })
   ];
 };
 

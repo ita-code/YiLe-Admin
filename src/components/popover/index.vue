@@ -33,8 +33,6 @@ const placementEnum = [PROP_TOP_LEFT, PROP_TOP_RIGHT, PROP_BOTTOM_LEFT, PROP_BOT
 </script>
 
 <script setup lang="ts">
-import { ref, watch, nextTick } from "vue";
-
 const props = defineProps({
   // 控制气泡弹出位置，并给出开发者错误的提示
   placement: {

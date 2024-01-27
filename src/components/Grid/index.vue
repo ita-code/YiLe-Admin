@@ -5,20 +5,6 @@
 </template>
 
 <script setup lang="ts" name="Grid">
-import {
-  ref,
-  watch,
-  useSlots,
-  computed,
-  provide,
-  onBeforeMount,
-  onMounted,
-  onUnmounted,
-  onDeactivated,
-  onActivated,
-  VNodeArrayChildren,
-  VNode
-} from "vue";
 import type { BreakPoint } from "./interface/index";
 
 type Props = {

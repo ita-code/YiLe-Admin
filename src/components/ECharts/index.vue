@@ -3,7 +3,6 @@
 </template>
 
 <script setup lang="ts" name="ECharts">
-import { ref, onMounted, onBeforeUnmount, watch, computed, markRaw, nextTick } from "vue";
 import { EChartsType, ECElementEvent } from "echarts/core";
 import echarts, { ECOption } from "./config";
 import { useDebounceFn } from "@vueuse/core";
