@@ -14,6 +14,8 @@ import vueSetupExtend from "unplugin-vue-setup-extend-plus/vite";
  */
 import Unocss from "unocss/vite";
 
+import createAutoImport from "./auto-import";
+
 /**
  * 创建 vite 插件
  * @param viteEnv
@@ -48,7 +50,9 @@ export const createVitePlugins = (viteEnv: ViteEnv): (PluginOption | PluginOptio
     // vitePWA
     VITE_PWA && createVitePwa(viteEnv),
     // 是否生成包预览，分析依赖包大小做优化处理
-    VITE_REPORT && (visualizer({ filename: "stats.html", gzipSize: true, brotliSize: true }) as PluginOption)
+    VITE_REPORT && (visualizer({ filename: "stats.html", gzipSize: true, brotliSize: true }) as PluginOption),
+    // 按需自动导入
+    createAutoImport()
   ];
 };
 

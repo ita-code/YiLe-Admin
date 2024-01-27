@@ -22,7 +22,6 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { reactive, ref } from "vue";
 import { ElButton, ElDivider } from "element-plus";
 import { Loading, useLoading } from "@/components/Loading";
 
