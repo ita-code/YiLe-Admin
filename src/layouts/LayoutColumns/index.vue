@@ -49,7 +49,6 @@
 </template>
 
 <script setup lang="ts" name="layoutColumns">
-import { useRoute, useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/modules/auth";
 import { useGlobalStore } from "@/stores/modules/global";
 import Main from "@/layouts/components/Main/index.vue";

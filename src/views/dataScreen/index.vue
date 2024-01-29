@@ -111,7 +111,7 @@
 
 <script setup lang="ts" name="dataScreen">
 import { HOME_URL } from "@/config";
-import { useRouter } from "vue-router";
+
 import AgeRatioChart from "./components/AgeRatioChart.vue";
 import AnnualUseChart from "./components/AnnualUseChart.vue";
 import ChinaMapChart from "./components/ChinaMapChart.vue";

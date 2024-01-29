@@ -1,4 +1,3 @@
-import { useRoute } from "vue-router";
 import { useAuthStore } from "@/stores/modules/auth";
 
 /**

@@ -4,8 +4,6 @@ import { useAuthStore } from "@/stores/modules/auth";
 
 import { uniqBy } from "lodash-es";
 
-import { useRouter } from "vue-router";
-
 export function useFrameKeepAlive() {
   const router = useRouter();
   const { currentRoute } = router;

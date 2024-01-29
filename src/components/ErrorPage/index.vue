@@ -23,8 +23,6 @@
 <script setup lang="ts" name="ErrorPage">
 import { ExceptionEnum } from "@/enums/exceptionEnum";
 
-import { useRouter, useRoute } from "vue-router";
-
 const router = useRouter();
 interface MapValue {
   title: string;

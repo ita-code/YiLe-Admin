@@ -21,8 +21,6 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from "vue-router";
-
 defineProps<{ menuList: Menu.MenuOptions[] }>();
 
 const router = useRouter();

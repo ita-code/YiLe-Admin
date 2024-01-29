@@ -36,7 +36,6 @@ import { HOME_URL } from "@/config";
 import { useTabsStore } from "@/stores/modules/tabs";
 import { useGlobalStore } from "@/stores/modules/global";
 import { useKeepAliveStore } from "@/stores/modules/keepAlive";
-import { useRoute, useRouter } from "vue-router";
 
 const route = useRoute();
 const router = useRouter();

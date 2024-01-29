@@ -21,7 +21,6 @@
 
 <script setup lang="ts">
 import { HOME_URL } from "@/config";
-import { useRoute, useRouter } from "vue-router";
 import { ArrowRight } from "@element-plus/icons-vue";
 import { useAuthStore } from "@/stores/modules/auth";
 import { useGlobalStore } from "@/stores/modules/global";

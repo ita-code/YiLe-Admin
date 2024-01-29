@@ -4,9 +4,6 @@
   </div>
 </template>
 <script lang="ts" setup>
-import type { CSSProperties } from "vue";
-import { ref, unref, onMounted, onUnmounted, computed } from "vue";
-
 const emit = defineEmits(["message"]);
 defineProps({
   frameSrc: {

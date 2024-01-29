@@ -31,7 +31,6 @@
 </template>
 
 <script setup lang="ts" name="layoutVertical">
-import { useRoute } from "vue-router";
 import { useAuthStore } from "@/stores/modules/auth";
 import { useGlobalStore } from "@/stores/modules/global";
 import Main from "@/layouts/components/Main/index.vue";

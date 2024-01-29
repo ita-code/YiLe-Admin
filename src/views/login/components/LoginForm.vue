@@ -54,7 +54,7 @@ const loginForm = reactive<Login.ReqLoginForm>({
 
 import { useUserStore } from "@/stores/modules/user";
 const userStore = useUserStore();
-import { useRouter } from "vue-router";
+
 const router = useRouter();
 import { HOME_URL, TEST_ACCOUNT } from "@/config";
 import { getTimeState } from "@/utils";

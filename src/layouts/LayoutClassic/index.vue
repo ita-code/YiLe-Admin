@@ -37,7 +37,6 @@
 </template>
 
 <script setup lang="ts" name="layoutClassic">
-import { useRoute } from "vue-router";
 import { useAuthStore } from "@/stores/modules/auth";
 import { useGlobalStore } from "@/stores/modules/global";
 import Main from "@/layouts/components/Main/index.vue";

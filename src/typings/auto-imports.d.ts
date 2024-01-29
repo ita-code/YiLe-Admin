@@ -90,6 +90,7 @@ declare global {
 // for type re-export
 declare global {
   // @ts-ignore
+  // 省去导入Vue内置类型 import type { CSSProperties } from "vue";
   export type {
     Component,
     ComponentPublicInstance,
@@ -101,7 +102,11 @@ declare global {
     PropType,
     Ref,
     VNode,
-    WritableComputedRef
+    WritableComputedRef,
+    Directive,
+    DirectiveBinding,
+    App,
+    CSSProperties
   } from "vue";
   import("vue");
 }

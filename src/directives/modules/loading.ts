@@ -1,5 +1,4 @@
 import { createLoading } from "@/components/Loading";
-import type { Directive, App } from "vue";
 
 const loadingDirective: Directive = {
   mounted(el, binding) {
