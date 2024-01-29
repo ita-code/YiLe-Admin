@@ -1,28 +1,9 @@
-import auth from "./modules/auth";
-import copy from "./modules/copy";
-import waterMarker from "./modules/waterMarker";
-import draggable from "./modules/draggable";
-import debounce from "./modules/debounce";
-import throttle from "./modules/throttle";
-import longpress from "./modules/longpress";
-import loading from "./modules/loading";
-const directivesList: { [key: string]: Directive } = {
-  auth,
-  copy,
-  waterMarker,
-  draggable,
-  debounce,
-  throttle,
-  longpress,
-  loading
-};
-
-const directives = {
-  install: function (app: App<Element>) {
-    Object.keys(directivesList).forEach(key => {
-      app.directive(key, directivesList[key]);
-    });
+export default {
+  install(app: App<Element>) {
+    const modules = import.meta.glob("./modules/*.ts");
+    for (const [key, value] of Object.entries(modules)) {
+      const directiveName = key.replace("./modules/", "").split(".")[0];
+      app.directive(directiveName, value.default);
+    }
   }
 };
-
-export default directives;

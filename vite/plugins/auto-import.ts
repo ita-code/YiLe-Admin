@@ -22,7 +22,7 @@ export default function createAutoImport() {
       "pinia",
       {
         from: "vue",
-        imports: ["Directive", "DirectiveBinding", "App", "CSSProperties", "ElRef"],
+        imports: ["Directive", "DirectiveBinding", "App", "CSSProperties", "ElRef", "ComponentInternalInstance"],
         type: true
       }
     ],
