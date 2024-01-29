@@ -76,3 +76,11 @@ declare const __APP_INFO__: {
 declare type ElRef<T extends HTMLElement = HTMLDivElement> = Nullable<T>;
 
 declare type Nullable<T> = T | null;
+
+import { ProTable } from "@/components/ProTable/index.vue";
+declare type ProTableType = InstanceType<typeof ProTable>;
+// declare module "@vue/runtime-core" {
+//   interface ComponentCustomProperties {
+//     ProTable: ProTableType;
+//   }
+// }
