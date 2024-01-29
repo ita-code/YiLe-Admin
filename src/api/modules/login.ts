@@ -2,7 +2,7 @@ import { Login } from "@/api/interface/index";
 import { PORT1 } from "@/api/config/servicePort";
 import authMenuList from "@/assets/json/authMenuList.json";
 import authButtonList from "@/assets/json/authButtonList.json";
-import http from "@/api";
+import http from "@/api/config";
 
 /**
  * @name 登录模块

@@ -37,6 +37,9 @@ import "virtual:uno.css";
 
 const app = createApp(App);
 
+// import api from "@/api";
+// app.config.globalProperties.$api = api;
+
 app.config.errorHandler = errorHandler;
 
 // register the element Icons component

@@ -79,8 +79,9 @@ declare type Nullable<T> = T | null;
 
 import { ProTable } from "@/components/ProTable/index.vue";
 declare type ProTableType = InstanceType<typeof ProTable>;
-// declare module "@vue/runtime-core" {
-//   interface ComponentCustomProperties {
-//     ProTable: ProTableType;
-//   }
-// }
+declare module "@vue/runtime-core" {
+  export interface ComponentCustomProperties {
+    $api: typeof API;
+    $mitt: mitt;
+  }
+}
