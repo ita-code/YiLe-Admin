@@ -1,22 +1,17 @@
-import { resolve } from "path";
 import { PluginOption } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
 import { createHtmlPlugin } from "vite-plugin-html";
 import { visualizer } from "rollup-plugin-visualizer";
-import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import eslintPlugin from "vite-plugin-eslint";
 import viteCompression from "vite-plugin-compression";
 import vueSetupExtend from "unplugin-vue-setup-extend-plus/vite";
-/**
- * @description https://unocss.dev/interactive/
- */
-import Unocss from "unocss/vite";
 
+import createUnocss from "./unocss";
 import createAutoImport from "./auto-import";
-import Components from "unplugin-vue-components/vite";
-import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+import createComponents from "./components";
+import createSvgIcon from "./svg-icon";
 /**
  * 创建 vite 插件
  * @param viteEnv
@@ -27,8 +22,6 @@ export const createVitePlugins = (viteEnv: ViteEnv): (PluginOption | PluginOptio
     vue(),
     // vue 可以使用 jsx/tsx 语法
     vueJsx(),
-    // https://unocss.dev/integrations/vite    https://unocss.nodejs.cn/integrations/vite
-    Unocss(),
     // esLint 报错信息显示在浏览器界面上
     eslintPlugin(),
     // name 可以写在 script 标签上
@@ -43,20 +36,14 @@ export const createVitePlugins = (viteEnv: ViteEnv): (PluginOption | PluginOptio
         data: { title: VITE_GLOB_APP_TITLE }
       }
     }),
-    // 使用 svg 图标
-    createSvgIconsPlugin({
-      iconDirs: [resolve(process.cwd(), "src/assets/icons")],
-      symbolId: "icon-[dir]-[name]"
-    }),
+    createSvgIcon(),
+    createAutoImport(),
+    createUnocss(),
+    createComponents(),
     // vitePWA
     VITE_PWA && createVitePwa(viteEnv),
     // 是否生成包预览，分析依赖包大小做优化处理
-    VITE_REPORT && (visualizer({ filename: "stats.html", gzipSize: true, brotliSize: true }) as PluginOption),
-    // 按需自动导入
-    createAutoImport(),
-    Components({
-      resolvers: [ElementPlusResolver()]
-    })
+    VITE_REPORT && (visualizer({ filename: "stats.html", gzipSize: true, brotliSize: true }) as PluginOption)
   ];
 };
 
