@@ -20,6 +20,7 @@ export default function createAutoImport() {
       "vue",
       "vue-router",
       "pinia",
+      // example type import
       {
         from: "vue",
         imports: ["Directive", "DirectiveBinding", "App", "CSSProperties", "ElRef", "ComponentInternalInstance"],

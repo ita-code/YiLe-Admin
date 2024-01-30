@@ -77,8 +77,6 @@ declare type ElRef<T extends HTMLElement = HTMLDivElement> = Nullable<T>;
 
 declare type Nullable<T> = T | null;
 
-import { ProTable } from "@/components/ProTable/index.vue";
-declare type ProTableType = InstanceType<typeof ProTable>;
 declare module "@vue/runtime-core" {
   export interface ComponentCustomProperties {
     $api: typeof API;

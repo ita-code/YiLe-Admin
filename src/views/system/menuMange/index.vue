@@ -26,7 +26,7 @@ import { Delete, EditPen, CirclePlus } from "@element-plus/icons-vue";
 import authMenuList from "@/assets/json/authMenuList.json";
 // import ProTable from "@/components/ProTable/index.vue";
 
-const proTable = ref<ProTableType>();
+const proTable = ref();
 const menuData = ref(authMenuList.data);
 
 // 表格配置项
