@@ -1,17 +1,15 @@
 <script setup lang="ts">
 import { SearchModal } from "./components";
-import { useBoolean } from "@/hooks/useBoolean";
-
-const { bool: show, toggle } = useBoolean();
+const show = ref<Boolean>(false);
 function handleSearch() {
-  toggle();
+  show.value = true;
 }
 </script>
 
 <template>
   <div class="search-menu">
     <i :class="'iconfont icon-sousuo'" class="toolBar-icon" @click="handleSearch"></i>
-    <SearchModal v-model:value="show" />
+    <SearchModal v-model="show" />
   </div>
 </template>
 <style lang="scss" scoped>

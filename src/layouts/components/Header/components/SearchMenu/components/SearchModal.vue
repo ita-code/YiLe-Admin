@@ -5,56 +5,22 @@ import SearchFooter from "./SearchFooter.vue";
 import { useDebounceFn, onKeyStroke } from "@vueuse/core";
 import { useAuthStore } from "@/stores/modules/auth";
 
-interface Props {
-  /** 弹窗显隐 */
-  value: boolean;
-}
-
-interface Emits {
-  (e: "update:value", val: boolean): void;
-}
-//手机端
-const emit = defineEmits<Emits>();
-const props = withDefaults(defineProps<Props>(), {});
 const router = useRouter();
-// const { locale } = useI18n();
 
 const keyword = ref("");
 const scrollbarRef = ref();
 const resultRef = ref();
 const activePath = ref("");
 const inputRef = ref<HTMLInputElement | null>(null);
-const resultOptions = shallowRef([]);
+const resultOptions = ref<Menu.MenuOptions[] | Record<string, any>[]>([]);
 const handleSearch = useDebounceFn(search, 300);
 
-/** 菜单树形结构 */
-const authStore = useAuthStore();
-const menusData = computed(() => authStore.flatMenuListGet.filter(item => !item.meta.isHide));
-const show = computed({
-  get() {
-    return props.value;
-  },
-  set(val: boolean) {
-    emit("update:value", val);
-  }
-});
-
-/** 将菜单树形结构扁平化为一维数组，用于菜单查询 */
-function flatTree(arr) {
-  const res = [];
-  function deep(arr) {
-    arr.forEach(item => {
-      res.push(item);
-      item.children && deep(item.children);
-    });
-  }
-  deep(arr);
-  return res;
-}
+const show = defineModel({ type: Boolean });
 
 /** 查询 */
+const authStore = useAuthStore();
 function search() {
-  const flatMenusData = flatTree(menusData.value);
+  const flatMenusData = authStore.flatMenuListGet;
   resultOptions.value = flatMenusData.filter(menu =>
     keyword.value
       ? menu.meta?.title.toLocaleLowerCase().includes(keyword.value.toLocaleLowerCase().trim())
@@ -117,6 +83,14 @@ function handleEnter() {
   if (length === 0 || activePath.value === "") return;
   router.push(activePath.value);
   handleClose();
+
+  // 点击菜单跳转
+  // const handleClickMenu = (menuItem: Menu.MenuOptions | Record<string, any>) => {
+  //   searchMenu.value = "";
+  //   if (menuItem.meta.isLink) window.open(menuItem.meta.isLink, "_blank");
+  //   else router.push(menuItem.path);
+  //   closeSearch();
+  // };
 }
 
 onKeyStroke("Enter", handleEnter);
@@ -146,7 +120,7 @@ onKeyStroke("ArrowDown", handleDown);
     <div class="search-result-container">
       <el-scrollbar ref="scrollbarRef" max-height="calc(90vh - 140px)">
         <el-empty v-if="resultOptions.length === 0" description="暂无搜索结果" />
-        <SearchResult v-else ref="resultRef" v-model:value="activePath" :options="resultOptions" @click="handleEnter" />
+        <SearchResult v-else ref="resultRef" v-model="activePath" :options="resultOptions" @click="handleEnter" />
       </el-scrollbar>
     </div>
     <template #footer>

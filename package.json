@@ -56,8 +56,7 @@
     "vue": "^3.4.3",
     "vue-i18n": "^9.8.0",
     "vue-router": "^4.2.5",
-    "vuedraggable": "^4.1.0",
-    "hotkeys-js": "^3.13.5"
+    "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",

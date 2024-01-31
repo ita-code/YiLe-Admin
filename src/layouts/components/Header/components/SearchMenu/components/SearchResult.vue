@@ -1,19 +1,9 @@
 <script setup lang="ts">
-interface optionsItem {
-  path: string;
-  meta?: {
-    icon?: string;
-    title?: string;
-  };
-}
-
 interface Props {
-  value: string;
-  options: Array<optionsItem>;
+  options: Array<Menu.MenuOptions | Record<string, any>>;
 }
 
 interface Emits {
-  (e: "update:value", val: string): void;
   (e: "enter"): void;
 }
 
@@ -33,14 +23,7 @@ const itemStyle = computed(() => {
   };
 });
 
-const active = computed({
-  get() {
-    return props.value;
-  },
-  set(val: string) {
-    emit("update:value", val);
-  }
-});
+const active = defineModel({ type: String });
 
 /** 鼠标移入 */
 async function handleMouse(item) {
@@ -62,7 +45,7 @@ function handleScroll(index: number) {
   const curInstance = instance?.proxy?.$refs[`resultItemRef${index}`];
   if (!curInstance) return 0;
   const curRef = curInstance[0] as ElRef;
-  const scrollTop = curRef.offsetTop + 128; // 128 两个result-item（56px+56px=112px）高度加上下margin（8px+8px=16px）
+  const scrollTop = curRef!.offsetTop + 128; // 128 两个result-item（56px+56px=112px）高度加上下margin（8px+8px=16px）
   return scrollTop > innerHeight.value ? scrollTop - innerHeight.value : 0;
 }
 
@@ -76,7 +59,7 @@ defineExpose({ handleScroll });
 <template>
   <div ref="resultRef" class="result">
     <div
-      v-for="(item, index) in options"
+      v-for="(item, index) in props.options"
       :key="item.path"
       :ref="'resultItemRef' + index"
       class="result-item dark:bg-[#1d1d1d]"
