@@ -13,27 +13,43 @@ import autoImport from "unplugin-auto-import/vite";
  * 提高代码可读性，清晰明了地表达使用的功能。
  * 更高的开发效率，节省时间和精力。
  * https://juejin.cn/post/7208099384070815803
+ *
+ * "#/*": ["src/typings/*"]  在tsconfig配置解决：类型“{}”上不存在属性
  */
 export default function createAutoImport() {
   return autoImport({
+    // 要转换的目标文件类型
+    include: [
+      /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+      /\.vue$/,
+      /\.vue\?vue/ // .vue
+    ],
+    // 要注册的全局导入
     imports: [
+      // 预设类型导入
       "vue",
       "vue-router",
       "pinia",
-      // example type import
+      // 示例类型导入
       {
         from: "vue",
         imports: ["Directive", "DirectiveBinding", "App", "CSSProperties", "ElRef", "ComponentInternalInstance"],
         type: true
       }
+      // 自定义导入
+      // {
+      //   "[package-name]": [
+      //     "[import-names]",
+      //     // 别名
+      //     ["[from]", "[alias]"]
+      //   ]
+      // }
     ],
+    // 要过滤掉的导入字符串数组
+    // ignore: ["useMouse", "useFetch"],
     //配置文件位置
-    dts: "./src/typings/auto-imports.d.ts",
-    include: [
-      /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
-      /\.vue$/,
-      /\.vue\?vue/ // .vue
-    ]
+    dts: "./src/typings/auto-imports.d.ts"
+    // 目录下的模块导出自动导入设置
     // dirs: ["./src/**"]
   });
 }
