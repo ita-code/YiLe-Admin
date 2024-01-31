@@ -77,9 +77,9 @@ declare type ElRef<T extends HTMLElement = HTMLDivElement> = Nullable<T>;
 
 declare type Nullable<T> = T | null;
 
-declare module "@vue/runtime-core" {
-  export interface ComponentCustomProperties {
-    $api: typeof API;
-    $mitt: mitt;
-  }
-}
+// declare module "@vue/runtime-core" {
+//   export interface ComponentCustomProperties {
+//     $api: typeof API;
+//     $mitt: mitt;
+//   }
+// }
