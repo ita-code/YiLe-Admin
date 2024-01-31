@@ -14,9 +14,9 @@ const emit = defineEmits<Emits>();
 const instance = getCurrentInstance()!;
 
 const itemStyle = computed(() => {
-  return item => {
+  return (item): CSSProperties => {
     return {
-      background: item?.path === active.value,
+      background: item?.path === active.value ? "#000" : "red",
       color: item.path === active.value ? "#fff" : "",
       fontSize: item.path === active.value ? "16px" : "14px"
     };
@@ -57,45 +57,21 @@ defineExpose({ handleScroll });
 </script>
 
 <template>
-  <div ref="resultRef" class="result">
+  <div ref="resultRef" class="pb3">
     <div
       v-for="(item, index) in props.options"
       :key="item.path"
       :ref="'resultItemRef' + index"
-      class="result-item dark:bg-[#1d1d1d]"
+      class="flex items-center h-14 p-3.5 mt-2 cursor-pointer border-0.025 border-solid border-#ccc border-rd-1 transition='all duration-0.3s' dark:bg-[#1d1d1d]"
       :style="itemStyle(item)"
       @click="handleTo"
       @mouseenter="handleMouse(item)"
     >
       <!-- <component :is="item?.meta?.icon"></component> -->
-      <span class="result-item-title">
+      <span class="flex flex-1 ml-1.25">
         {{ item.meta?.title }}
       </span>
       <!-- <Kbd> √</Kbd> -->
     </div>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.result {
-  padding-bottom: 12px;
-
-  &-item {
-    display: flex;
-    align-items: center;
-    height: 56px;
-    padding: 14px;
-    margin-top: 8px;
-    cursor: pointer;
-    border: 0.1px solid #ccc;
-    border-radius: 4px;
-    transition: all 0.3s;
-
-    &-title {
-      display: flex;
-      flex: 1;
-      margin-left: 5px;
-    }
-  }
-}
-</style>
