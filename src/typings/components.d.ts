@@ -17,6 +17,7 @@ declare module "vue" {
     ElCol: (typeof import("element-plus/es"))["ElCol"];
     ElColorPicker: (typeof import("element-plus/es"))["ElColorPicker"];
     ElContainer: (typeof import("element-plus/es"))["ElContainer"];
+    ElDatePicker: (typeof import("element-plus/es"))["ElDatePicker"];
     ElDescriptions: (typeof import("element-plus/es"))["ElDescriptions"];
     ElDescriptionsItem: (typeof import("element-plus/es"))["ElDescriptionsItem"];
     ElDialog: (typeof import("element-plus/es"))["ElDialog"];
@@ -25,6 +26,7 @@ declare module "vue" {
     ElDropdown: (typeof import("element-plus/es"))["ElDropdown"];
     ElDropdownItem: (typeof import("element-plus/es"))["ElDropdownItem"];
     ElDropdownMenu: (typeof import("element-plus/es"))["ElDropdownMenu"];
+    ElementItem: (typeof import("./../components/ProForm/components/ElementItem.vue"))["default"];
     ElEmpty: (typeof import("element-plus/es"))["ElEmpty"];
     ElFooter: (typeof import("element-plus/es"))["ElFooter"];
     ElForm: (typeof import("element-plus/es"))["ElForm"];
@@ -50,6 +52,7 @@ declare module "vue" {
     ElTag: (typeof import("element-plus/es"))["ElTag"];
     ElTooltip: (typeof import("element-plus/es"))["ElTooltip"];
     ErrorPage: (typeof import("./../components/ErrorPage/index.vue"))["default"];
+    FormItem: (typeof import("./../components/ProForm/components/FormItem.vue"))["default"];
     Grid: (typeof import("./../components/Grid/index.vue"))["default"];
     GridItem: (typeof import("./../components/Grid/components/GridItem.vue"))["default"];
     Img: (typeof import("./../components/Upload/Img.vue"))["default"];
@@ -59,6 +62,7 @@ declare module "vue" {
     Loading: (typeof import("./../components/Loading/src/Loading.vue"))["default"];
     Pagination: (typeof import("./../components/ProTable/components/Pagination.vue"))["default"];
     Popover: (typeof import("./../components/popover/index.vue"))["default"];
+    ProFormBasics: (typeof import("./../components/ProForm/ProFormBasics.vue"))["default"];
     ProTable: (typeof import("./../components/ProTable/index.vue"))["default"];
     RouterLink: (typeof import("vue-router"))["RouterLink"];
     RouterView: (typeof import("vue-router"))["RouterView"];
