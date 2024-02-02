@@ -1,6 +1,7 @@
 <template>
   <div class="card content-box h-full w-full">
-    <ProFormBasics ref="formPopupRef" title="签订采购合同" :row="3" :columns="columnsForm"></ProFormBasics>
+    <ProFormBasics ref="formPopupRef" title="签订采购合同" :columns="columnsForm"></ProFormBasics>
+    <ElButton @click="handleAdd">给日期赋值</ElButton>
   </div>
 </template>
 
@@ -32,6 +33,10 @@ const columnsForm = ref<FormColumnProps[]>([
     span: 24
   }
 ]);
+const formPopupRef = ref<InstanceType<typeof ProFormBasics> | null>(null);
+const handleAdd = () => {
+  formPopupRef.value!.formParam.orderDate = "2022-02-02";
+};
 </script>
 
 <style lang="scss" scoped></style>

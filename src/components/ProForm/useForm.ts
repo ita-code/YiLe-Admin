@@ -1,13 +1,13 @@
 import { FormColumnProps, FormProps } from "@/components/ProForm/interface";
+import { ElForm } from "element-plus";
 export const useForm = (
   columns: FormColumnProps[],
   defaultValue: Recordable<string> = {},
-  labelWidth: number | string
-  // api?: (params: any) => Promise<any>,
-  // initParam: object = {},
-  // isPageable: boolean = true,
-  // dataCallBack?: (data: any) => any,
-  // requestError?: (error: any) => void
+  labelWidth: number = 0,
+  confirmCallBack?: (data: Recordable<string>) => void,
+  closeCallBack?: (data: Recordable<string>) => void,
+  api?: (params: any) => Promise<any>,
+  params: Recordable<string> = {}
 ) => {
   const form = reactive<FormProps>({
     formLoading: false,
@@ -59,10 +59,41 @@ export const useForm = (
     form.formColumns = initData(columns);
     updateValue();
   };
-
+  interface Emits {
+    (e: "confirm"): void;
+    (e: "cancel"): void;
+  }
+  const emit = defineEmits<Emits>();
+  const confirm = (formRef: InstanceType<typeof ElForm> | null) => {
+    formRef!.validate(async (valid: boolean) => {
+      if (valid) {
+        const paramsForm = { ...form.formParam, ...params };
+        if (api) {
+          form.formLoading = true;
+          const { success } = await api(paramsForm);
+          form.formLoading = false;
+          if (success) {
+            cancel(formRef);
+            emit("confirm");
+          }
+        }
+        confirmCallBack && confirmCallBack(form.formParam);
+      } else {
+        return false;
+      }
+    });
+  };
+  const cancel = (formRef: InstanceType<typeof ElForm> | null) => {
+    formRef!.resetFields();
+    form.formParam = {};
+    closeCallBack && closeCallBack(form.formParam);
+    emit("cancel");
+  };
   return {
     ...toRefs(form),
+    formLabelWidth,
     init,
-    formLabelWidth
+    confirm,
+    cancel
   };
 };
