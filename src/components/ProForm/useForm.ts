@@ -7,7 +7,7 @@ export const useForm = (
   confirmCallBack?: (data: Recordable<string>) => void,
   closeCallBack?: (data: Recordable<string>) => void,
   api?: (params: any) => Promise<any>,
-  params: Recordable<string> = {}
+  apiParams: Recordable<string> = {}
 ) => {
   const form = reactive<FormProps>({
     formLoading: false,
@@ -59,22 +59,22 @@ export const useForm = (
     form.formColumns = initData(columns);
     updateValue();
   };
-  interface Emits {
-    (e: "confirm"): void;
-    (e: "cancel"): void;
-  }
-  const emit = defineEmits<Emits>();
+  //回调方法取代emit
+  // interface Emits {
+  //   (e: "confirm"): void;
+  //   (e: "cancel"): void;
+  // }
+  // const emit = defineEmits<Emits>();
   const confirm = (formRef: InstanceType<typeof ElForm> | null) => {
     formRef!.validate(async (valid: boolean) => {
       if (valid) {
-        const paramsForm = { ...form.formParam, ...params };
+        const paramsForm = { ...form.formParam, ...apiParams };
         if (api) {
           form.formLoading = true;
           const { success } = await api(paramsForm);
           form.formLoading = false;
           if (success) {
             cancel(formRef);
-            emit("confirm");
           }
         }
         confirmCallBack && confirmCallBack(form.formParam);
@@ -87,7 +87,6 @@ export const useForm = (
     formRef!.resetFields();
     form.formParam = {};
     closeCallBack && closeCallBack(form.formParam);
-    emit("cancel");
   };
   return {
     ...toRefs(form),

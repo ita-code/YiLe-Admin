@@ -33,12 +33,12 @@ interface FromProps {
   title?: string;
   row: 1 | 2 | 3 | 4;
   columns?: FormColumnProps[]; // 配置列
-  api?: () => Promise<any>;
+  api?: (data: Recordable<string>) => Promise<any>;
   confirmCallBack?: (data: Recordable<string>) => void;
   closeCallBack?: (data: Recordable<string>) => void;
   labelWidth?: number;
   defaultValue?: Recordable<string>; //默认数据
-  params?: Recordable<string>; //接口所需额外参数
+  apiParams?: Recordable<string>;
 }
 const props = withDefaults(defineProps<FromProps>(), {
   row: 1,
@@ -50,7 +50,9 @@ const { formLabelWidth, formColumns, formParam, formLoading, init, confirm, canc
   props.defaultValue,
   props.labelWidth,
   props.confirmCallBack,
-  props.closeCallBack
+  props.closeCallBack,
+  props.api,
+  props.apiParams
 );
 onMounted(() => {
   init();
