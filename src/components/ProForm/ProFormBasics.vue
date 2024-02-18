@@ -1,21 +1,9 @@
 <template>
   <el-form class="w-full" ref="formRef" :model="formParam" :label-width="formLabelWidth" @submit.enter.prevent scroll-to-error>
     <el-row>
-      <template v-for="(item, index) in formColumns" :key="index">
-        <el-col v-if="item.isShow" :index="index" :span="item.span ?? 24 / row">
-          <el-form-item
-            :label-width="item.labelWidth ?? formLabelWidth"
-            :class="item.isWarp ? 'label-warp' : ''"
-            v-if="(item.el || item?.render) && !['slot'].includes(item.el ?? '')"
-            :label="item.label"
-            :rules="item?.rules ?? []"
-            :prop="item.prop"
-          >
-            <ElementItem :column="item" :form-param="formParam" />
-          </el-form-item>
-          <slot v-if="item.el === 'slot'" :name="item.slot" v-bind="{ formParam }"></slot>
-        </el-col>
-      </template>
+      <el-col v-for="(item, index) in columnsLists" :key="index" :index="index" :span="item.span ?? 24 / row">
+        <FormItem :form-param="formParam" :el="item.el" :prop="item.prop" :label="item.label" />
+      </el-col>
     </el-row>
     <div class="dialog-footer">
       <el-button @click="cancel(formRef)">取消</el-button>
@@ -23,9 +11,9 @@
     </div>
   </el-form>
 </template>
-<script setup lang="ts" name="SkFormBasics">
+<script setup lang="ts" name="ProFormBasics">
 import { FormColumnProps } from "@/components/ProForm/interface";
-import ElementItem from "./components/ElementItem.vue";
+import FormItem from "./components/FormItem.vue";
 import { useForm } from "@/components/ProForm/useForm";
 import { ElForm } from "element-plus";
 
@@ -40,6 +28,9 @@ interface FromProps {
   defaultValue?: Recordable<string>; //默认数据
   apiParams?: Recordable<string>;
 }
+const columnsLists = computed(() => {
+  return formColumns.value.filter((item: FormColumnProps) => item.isHideItem);
+});
 const props = withDefaults(defineProps<FromProps>(), {
   row: 1,
   columns: () => []

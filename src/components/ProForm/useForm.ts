@@ -18,7 +18,7 @@ export const useForm = (
   const initData = (columns: FormColumnProps[], formColumns: FormColumnProps[] = []) => {
     columns.forEach(async col => {
       formColumns.push(col);
-      col.isShow = col.isShow ?? true;
+      col.isHideItem = col.isHideItem ?? false;
       if (!col?.prop) return;
       col?.key && mapObj(form.formParam, col.key);
       form.formParam[col?.prop] = "";
