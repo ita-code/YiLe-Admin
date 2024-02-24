@@ -11,7 +11,7 @@
     v-bind="$attrs"
   >
     <template #label v-if="column.labelRender">
-      <component :is="column.labelRender" v-bind="{ props }" />
+      <component :is="column.labelRender" v-bind="{ ...column }" />
     </template>
     <component
       v-if="column?.render || (column.prop && column?.el && !['upload-imgs', 'upload-img', 'date-picker'].includes(column?.el))"

@@ -36,6 +36,27 @@ const columnsForm = ref<FormColumnProps[]>([
       { label: "采购订单", value: "1" },
       { label: "销售订单", value: "2" }
     ]
+  },
+  {
+    prop: "orderStatus",
+    labelRender: () => {
+      return (
+        <div class="flex-center">
+          订单状态
+          <el-tooltip effect="dark" content="这是一个提示自定义labelRender" placement="top">
+            <el-icon>
+              <WarningFilled />
+            </el-icon>
+          </el-tooltip>
+        </div>
+      );
+    },
+    rules: [{ required: true, message: "请输入订单状态", trigger: ["blur", "change"] }],
+    el: "radio-group",
+    enum: [
+      { label: "已签订", value: "1" },
+      { label: "未签订", value: "2" }
+    ]
   }
 ]);
 const formPopupRef = ref<InstanceType<typeof ProFormBasics> | null>(null);
