@@ -10,8 +10,7 @@ import ProFormBasics from "@/components/ProForm/ProFormBasics.vue";
 import { FormColumnProps } from "@/components/ProForm/interface";
 const columnsForm = ref<FormColumnProps[]>([
   {
-    el: "slot",
-    slot: "top",
+    slotName: "top",
     span: 24
   },
   {
@@ -26,11 +25,6 @@ const columnsForm = ref<FormColumnProps[]>([
     label: "订单编号",
     rules: [{ required: true, message: "请输入订单编号", trigger: ["blur", "change"] }],
     el: "input"
-  },
-  {
-    el: "slot",
-    slot: "table",
-    span: 24
   }
 ]);
 const formPopupRef = ref<InstanceType<typeof ProFormBasics> | null>(null);

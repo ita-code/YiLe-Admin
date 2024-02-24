@@ -9,7 +9,8 @@ export default function createComponents() {
     dirs: ["src/components"],
     include: [/\.vue$/, /\.vue\?vue/, /\.tsx$/],
     dts: "./src/typings/components.d.ts",
-    // 解析的 UI 组件库，这里以 Element Plus 和 Ant Design Vue 为例
+    deep: false,
+    // 解析的 UI 组件库，这里以 Element Plus 为例
     resolvers: [ElementPlusResolver()]
   });
 }

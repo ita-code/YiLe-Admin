@@ -1,12 +1,18 @@
 <template>
-  <slot v-if="el === 'slot'" :name="slotName" v-bind="{ formParam }"></slot>
-  <component v-else-if="el === 'render'" :is="render"></component>
-  <el-form-item v-else :prop="prop" :label="label" :class="[className]" :rules="rules" v-bind="$attrs">
-    <!-- 自定义label -->
-    <template #label v-if="labelRender">
-      <render-comp :render="labelRender" :item="props" />
+  <slot v-if="item.slotName" :name="item.slotName" v-bind="{ formParam }"></slot>
+  <component v-if="item.render" :is="item.render" v-bind="{ formParam }"></component>
+  <el-form-item
+    v-if="item.el"
+    :prop="item.prop"
+    :label="item.label"
+    :class="[item?.className && item.className]"
+    :rules="item.rules"
+    v-bind="$attrs"
+  >
+    <template #label v-if="item.labelRender">
+      <component :is="item.labelRender" v-bind="{ props }" />
     </template>
-    <ElementItem :column="props.props" :form-param="formParam" />
+    <ElementItem :column="item" :form-param="formParam" />
   </el-form-item>
 </template>
 
@@ -15,6 +21,7 @@ import ElementItem from "./ElementItem.vue";
 import { FormColumnProps } from "@/components/ProForm/interface/index";
 interface FormItemProps {
   formParam: Recordable<string>;
+  item: FormColumnProps;
 }
-const props = defineProps<FormColumnProps & FormItemProps>();
+const props = defineProps<FormItemProps>();
 </script>

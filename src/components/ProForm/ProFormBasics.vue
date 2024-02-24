@@ -1,8 +1,14 @@
 <template>
   <el-form class="w-full" ref="formRef" :model="formParam" :label-width="formLabelWidth" @submit.enter.prevent scroll-to-error>
     <el-row>
-      <el-col v-for="(item, index) in columnsLists" :key="index" :index="index" :span="item.span ?? 24 / row">
-        <FormItem :form-param="formParam" :el="item.el" :prop="item.prop" :label="item.label" />
+      <el-col
+        v-for="(item, index) in columnsLists"
+        :key="index"
+        :index="index"
+        :span="item.span ?? 24 / row"
+        :offset="item.offset"
+      >
+        <FormItem :form-param="formParam" :item="item" />
       </el-col>
     </el-row>
     <div class="dialog-footer">
@@ -29,7 +35,7 @@ interface FromProps {
   apiParams?: Recordable<string>;
 }
 const columnsLists = computed(() => {
-  return formColumns.value.filter((item: FormColumnProps) => item.isHideItem);
+  return formColumns.value.filter((item: FormColumnProps) => !item.isHideItem);
 });
 const props = withDefaults(defineProps<FromProps>(), {
   row: 1,

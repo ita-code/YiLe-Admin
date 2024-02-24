@@ -14,9 +14,15 @@
       <span>{{ data[fieldNames.label] }}</span>
     </template>
     <template v-if="column?.el === 'radio-group'">
-      <el-radio v-for="(col, index) in columnEnum" :disabled="col.disabled ?? false" :key="index" :label="col[fieldNames.value]">
+      <component
+        :is="`el-radio`"
+        v-for="(col, index) in columnEnum"
+        :disabled="col.disabled ?? false"
+        :key="index"
+        :label="col[fieldNames.value]"
+      >
         {{ col[fieldNames.label] }}
-      </el-radio>
+      </component>
     </template>
     <template v-if="column?.el === 'select'">
       <component
@@ -29,11 +35,12 @@
       ></component>
     </template>
   </component>
-  <el-date-picker
+  <component
+    :is="`el-date-picker`"
     v-if="column?.el === 'date-picker' && column.prop"
     v-bind="{ ...handleProps, ...placeholder, clearable, formParam: _formParam }"
     v-model="_formParam[column?.prop]"
-  ></el-date-picker>
+  ></component>
 </template>
 
 <script setup lang="ts" name="ElementItem">
