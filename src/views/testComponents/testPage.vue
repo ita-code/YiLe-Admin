@@ -1,6 +1,6 @@
 <template>
   <div class="card content-box h-full w-full">
-    <ProFormBasics ref="formPopupRef" title="签订采购合同" :columns="columnsForm"></ProFormBasics>
+    <ProFormBasics :row="2" ref="formPopupRef" title="签订采购合同" :columns="columnsForm"></ProFormBasics>
     <ElButton @click="handleAdd">给日期赋值</ElButton>
   </div>
 </template>
@@ -10,8 +10,9 @@ import ProFormBasics from "@/components/ProForm/ProFormBasics.vue";
 import { FormColumnProps } from "@/components/ProForm/interface";
 const columnsForm = ref<FormColumnProps[]>([
   {
-    slotName: "top",
-    span: 24
+    prop: "orderNumbering",
+    label: "订单编号",
+    el: "text"
   },
   {
     prop: "orderDate",
@@ -25,6 +26,16 @@ const columnsForm = ref<FormColumnProps[]>([
     label: "订单编号",
     rules: [{ required: true, message: "请输入订单编号", trigger: ["blur", "change"] }],
     el: "input"
+  },
+  {
+    prop: "orderType",
+    label: "订单类型",
+    rules: [{ required: true, message: "请输入订单日期", trigger: ["blur", "change"] }],
+    el: "select",
+    enum: [
+      { label: "采购订单", value: "1" },
+      { label: "销售订单", value: "2" }
+    ]
   }
 ]);
 const formPopupRef = ref<InstanceType<typeof ProFormBasics> | null>(null);

@@ -8,7 +8,7 @@
         :span="item.span ?? 24 / row"
         :offset="item.offset"
       >
-        <FormItem :form-param="formParam" :item="item" />
+        <ElementItem :form-param="formParam" :column="item" />
       </el-col>
     </el-row>
     <div class="dialog-footer">
@@ -19,7 +19,7 @@
 </template>
 <script setup lang="ts" name="ProFormBasics">
 import { FormColumnProps } from "@/components/ProForm/interface";
-import FormItem from "./components/FormItem.vue";
+import ElementItem from "./components/ElementItem.vue";
 import { useForm } from "@/components/ProForm/useForm";
 import { ElForm } from "element-plus";
 

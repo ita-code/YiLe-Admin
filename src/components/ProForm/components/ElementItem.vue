@@ -1,46 +1,61 @@
 <template>
+  <slot v-if="column.slotName" :name="column.slotName" v-bind="{ formParam }"></slot>
+  <component v-if="column.render && !column.prop" :is="column.render" v-bind="{ formParam }"></component>
   <component
-    v-if="column?.render || (column.prop && column?.el && !['upload-imgs', 'upload-img', 'date-picker'].includes(column?.el))"
-    :is="column?.render ?? `el-${column?.el}`"
-    v-bind="{ ...handleProps, ...placeholder, clearable, formParam: _formParam }"
-    :data="column?.el === 'tree-select' ? columnEnum : []"
-    v-model="_formParam[column.prop as string]"
-    :options="['cascader', 'select-v2'].includes(column?.el!) ? columnEnum : []"
+    :is="`el-form-item`"
+    v-if="column.el"
+    :prop="column.prop"
+    :label="column.label"
+    :class="[column?.className && column.className]"
+    :rules="column.rules"
+    v-bind="$attrs"
   >
-    <template v-if="column?.el === 'text'">
-      {{ _formParam[column.prop as string] }}
+    <template #label v-if="column.labelRender">
+      <component :is="column.labelRender" v-bind="{ props }" />
     </template>
-    <template v-if="column?.el === 'cascader'" #default="{ data }">
-      <span>{{ data[fieldNames.label] }}</span>
-    </template>
-    <template v-if="column?.el === 'radio-group'">
-      <component
-        :is="`el-radio`"
-        v-for="(col, index) in columnEnum"
-        :disabled="col.disabled ?? false"
-        :key="index"
-        :label="col[fieldNames.value]"
-      >
-        {{ col[fieldNames.label] }}
-      </component>
-    </template>
-    <template v-if="column?.el === 'select'">
-      <component
-        :is="`el-option`"
-        v-for="(col, index) in columnEnum"
-        :key="index"
-        :disabled="col.disabled ?? false"
-        :label="col[fieldNames.label]"
-        :value="col[fieldNames.value]"
-      ></component>
-    </template>
+    <component
+      v-if="column?.render || (column.prop && column?.el && !['upload-imgs', 'upload-img', 'date-picker'].includes(column?.el))"
+      :is="column?.render ?? `el-${column?.el}`"
+      v-bind="{ ...handleProps, ...placeholder, clearable, formParam: _formParam }"
+      :data="column?.el === 'tree-select' ? columnEnum : []"
+      v-model="_formParam[column.prop as string]"
+      :options="['cascader', 'select-v2'].includes(column?.el!) ? columnEnum : []"
+    >
+      <template v-if="column?.el === 'text'">
+        {{ _formParam[column.prop as string] }}
+      </template>
+      <template v-if="column?.el === 'cascader'" #default="{ data }">
+        <span>{{ data[fieldNames.label] }}</span>
+      </template>
+      <template v-if="column?.el === 'radio-group'">
+        <component
+          :is="`el-radio`"
+          v-for="(col, index) in columnEnum"
+          :disabled="col.disabled ?? false"
+          :key="index"
+          :label="col[fieldNames.value]"
+        >
+          {{ col[fieldNames.label] }}
+        </component>
+      </template>
+      <template v-if="column?.el === 'select'">
+        <component
+          :is="`el-option`"
+          v-for="(col, index) in columnEnum"
+          :key="index"
+          :disabled="col.disabled ?? false"
+          :label="col[fieldNames.label]"
+          :value="col[fieldNames.value]"
+        ></component>
+      </template>
+    </component>
+    <component
+      :is="`el-date-picker`"
+      v-if="column?.el === 'date-picker' && column.prop"
+      v-bind="{ ...handleProps, ...placeholder, clearable, formParam: _formParam }"
+      v-model="_formParam[column?.prop]"
+    ></component>
   </component>
-  <component
-    :is="`el-date-picker`"
-    v-if="column?.el === 'date-picker' && column.prop"
-    v-bind="{ ...handleProps, ...placeholder, clearable, formParam: _formParam }"
-    v-model="_formParam[column?.prop]"
-  ></component>
 </template>
 
 <script setup lang="ts" name="ElementItem">
