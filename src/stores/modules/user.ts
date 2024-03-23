@@ -45,7 +45,7 @@ const useUserDefineStore = defineStore({
       this.setToken("");
     }
   },
-  persist: piniaPersistConfig("admin-user")
+  persist: piniaPersistConfig(PiniaStoreId.User)
 });
 import pinia from "@/stores";
 export function useUserStore() {
