@@ -3,9 +3,9 @@ import { AuthState } from "@/stores/interface";
 import { getAuthButtonListApi, getAuthMenuListApi } from "@/api/modules/login";
 import { getFlatMenuList, getShowMenuList, getAllBreadcrumbList } from "@/utils";
 import { testComponentRouter, docFrameRouter } from "@/routers/modules/staticRouter";
-
+import { PiniaStoreId } from "@/enums/StoreEnum";
 const useAuthDefineStore = defineStore({
-  id: "admin-auth",
+  id: PiniaStoreId.Auth,
   state: (): AuthState => ({
     // 按钮权限列表
     authButtonList: {},

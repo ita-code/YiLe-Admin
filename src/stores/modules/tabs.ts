@@ -6,9 +6,9 @@ import { TabsState, TabsMenuProps } from "@/stores/interface";
 import piniaPersistConfig from "@/stores/helper/persist";
 
 const keepAliveStore = useKeepAliveStore();
-
+import { PiniaStoreId } from "@/enums/StoreEnum";
 const useTabsDefineStores = defineStore({
-  id: "admin-tabs",
+  id: PiniaStoreId.Tabs,
   state: (): TabsState => ({
     tabsMenuList: []
   }),
@@ -72,7 +72,7 @@ const useTabsDefineStores = defineStore({
       });
     }
   },
-  persist: piniaPersistConfig("admin-tabs")
+  persist: piniaPersistConfig(PiniaStoreId.Tabs)
 });
 import pinia from "@/stores";
 export function useTabsStore() {

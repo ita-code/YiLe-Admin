@@ -2,9 +2,10 @@ import { defineStore } from "pinia";
 import { GlobalState } from "@/stores/interface";
 import { DEFAULT_PRIMARY } from "@/config";
 import piniaPersistConfig from "@/stores/helper/persist";
+import { PiniaStoreId } from "@/enums/StoreEnum";
 
 const useGlobalDefineStores = defineStore({
-  id: "admin-global",
+  id: PiniaStoreId.Global,
   // 修改默认值之后，需清除 localStorage 数据
   state: (): GlobalState => ({
     // 布局模式 (纵向：vertical | 经典：classic | 横向：transverse | 分栏：columns)
@@ -49,7 +50,7 @@ const useGlobalDefineStores = defineStore({
       this.$patch({ [args[0]]: args[1] });
     }
   },
-  persist: piniaPersistConfig("admin-global")
+  persist: piniaPersistConfig(PiniaStoreId.Global)
 });
 import pinia from "@/stores";
 export function useGlobalStore() {
