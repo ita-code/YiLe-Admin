@@ -10,20 +10,20 @@
     "url": "https://github.com/ita-code/"
   },
   "license": "MIT",
-  "homepage": "https://github.com/ita-code/admin-vue3-ts",
+  "homepage": "https://github.com/ita-code/YiLe-Admin",
   "repository": {
     "type": "git",
-    "url": "git@github.com:ita-code/admin-vue3-ts.git"
+    "url": "git@github.com:ita-code/YiLe-Admin.git"
   },
   "bugs": {
-    "url": "https://github.com/ita-code/admin-vue3-ts/issues"
+    "url": "https://github.com/ita-code/YiLe-Admin/issues"
   },
   "scripts": {
     "dev": "vite",
     "serve": "vite",
     "build:dev": "vue-tsc && vite build --mode development",
     "build:test": "vue-tsc && vite build --mode test",
-    "build:pro": "vite build --mode production",
+    "build:prod": "vite build --mode production",
     "type:check": "vue-tsc --noEmit --skipLibCheck",
     "preview": "npm run build:dev && vite preview",
     "lint:eslint": "eslint --fix --ext .js,.ts,.vue ./src",
@@ -69,6 +69,7 @@
     "@typescript-eslint/parser": "^6.17.0",
     "@vitejs/plugin-vue": "^5.0.2",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
+    "vite-plugin-vue-devtools": "7.0.16",
     "autoprefixer": "^10.4.16",
     "cz-git": "^1.8.0",
     "czg": "^1.8.0",

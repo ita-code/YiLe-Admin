@@ -1,8 +1,8 @@
 import { defineStore } from "pinia";
 import { KeepAliveState } from "@/stores/interface";
-
+import { PiniaStoreId } from "@/enums/StoreEnum";
 const useKeepAliveDefineStores = defineStore({
-  id: "admin-keepAlive",
+  id: PiniaStoreId.KeepAlive,
   state: (): KeepAliveState => ({
     keepAliveName: []
   }),

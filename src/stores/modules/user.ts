@@ -10,9 +10,9 @@ import { useTabsStore } from "./tabs";
 import { useKeepAliveStore } from "./keepAlive";
 
 import md5 from "md5";
-
+import { PiniaStoreId } from "@/enums/StoreEnum";
 const useUserDefineStore = defineStore({
-  id: "admin-user",
+  id: PiniaStoreId.User,
   state: (): UserState => ({
     token: "",
     userInfo: { name: "admin" }
@@ -45,7 +45,7 @@ const useUserDefineStore = defineStore({
       this.setToken("");
     }
   },
-  persist: piniaPersistConfig("admin-user")
+  persist: piniaPersistConfig(PiniaStoreId.User)
 });
 import pinia from "@/stores";
 export function useUserStore() {
