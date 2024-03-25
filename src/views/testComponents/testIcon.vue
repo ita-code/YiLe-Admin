@@ -20,7 +20,7 @@ const icon = ref("ep:add-location");
         <span class="font-medium">图标案例演示</span>
       </div>
     </template>
-    <IconSelect v-model="icon" class="w-[200px]" />
+    <IconSelect v-model="icon" class="w-[400px]" />
     <Grid :cols="2" :gap="20">
       <GridItem :span="2">
         <el-divider> 阿里系图片渲染 </el-divider>
