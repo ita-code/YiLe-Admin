@@ -11,36 +11,47 @@ defineOptions({
 });
 
 const icon = ref("ep:add-location");
-const iconEp = `<component :is="useRenderIcon('ep:arrow-left-bold') />`;
-const iconAl = `<component :is="useRenderIcon('IF-zhibiaozhuangtai svg', { width: '18px', height: '18px' })" />`;
 </script>
 
 <template>
   <el-card shadow="never">
     <template #header>
       <div class="card-header">
-        <span class="font-medium">图标选择器</span>
+        <span class="font-medium">图标案例演示</span>
       </div>
     </template>
     <IconSelect v-model="icon" class="w-[200px]" />
     <Grid :cols="2" :gap="20">
-      <GridItem>
-        <el-divider>
-          useRenderIcon
-          <el-tooltip :content="iconEp" placement="top" effect="light">
-            <component :is="useRenderIcon('ep:warning-filled')" />
-          </el-tooltip>
-        </el-divider>
-        <component :is="useRenderIcon('ep:arrow-left-bold')" />
+      <GridItem :span="2">
+        <el-divider> 阿里系图片渲染 </el-divider>
       </GridItem>
       <GridItem>
-        <el-divider>
-          useRenderIcon
-          <el-tooltip :content="iconAl" placement="top" effect="light">
-            <component :is="useRenderIcon('ep:warning-filled')" />
-          </el-tooltip>
-        </el-divider>
+        <el-divider> FontIcon/svg </el-divider>
+        <FontIcon width="18px" height="18px" icon="zhibiaozhuangtai" :svg="true" />
+        {{ `<FontIcon width="18px" height="18px" icon="zhibiaozhuangtai" :svg="true" />` }}
+      </GridItem>
+      <GridItem>
+        <el-divider> FontIcon/icon </el-divider>
+        <FontIcon style="font-size: 18px" icon="icon-suoxiao" />
+        {{ `<FontIcon style="font-size: 18px" icon="icon-suoxiao" />` }}
+      </GridItem>
+      <GridItem>
+        <el-divider> useRenderIcon: svg </el-divider>
         <component :is="useRenderIcon('al-zhibiaozhuangtai svg', { width: '18px', height: '18px' })" />
+        {{ `<component :is="useRenderIcon('al-zhibiaozhuangtai svg', { width: '18px', height: '18px' })" />` }}
+      </GridItem>
+      <GridItem>
+        <el-divider> useRenderIcon: icon </el-divider>
+        <component :is="useRenderIcon('al-icon-suoxiao')" style="font-size: 18px" />
+        {{ `<component :is="useRenderIcon('al-icon-suoxiao')" style="font-size: 18px" />` }}
+      </GridItem>
+      <GridItem :span="2">
+        <el-divider> Element Plus </el-divider>
+      </GridItem>
+      <GridItem>
+        <el-divider> useRenderIcon: ep:arrow-left-bold </el-divider>
+        <component :is="useRenderIcon('ep:arrow-left-bold')" />
+        {{ `<component :is="useRenderIcon('ep:arrow-left-bold')" />` }}
       </GridItem>
     </Grid>
   </el-card>
