@@ -13,3 +13,4 @@ dist
 /bin
 /src/mock/*
 stats.html
+/src/assets

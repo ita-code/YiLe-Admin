@@ -130,6 +130,20 @@ export const testComponentRouter = [
           isAffix: false,
           isKeepAlive: true
         }
+      },
+      {
+        path: "/test4/index",
+        name: "test4",
+        component: "/testComponents/testIcon",
+        meta: {
+          icon: "Menu",
+          title: "测试Icon",
+          isLink: "",
+          isHide: false,
+          isFull: false,
+          isAffix: false,
+          isKeepAlive: true
+        }
       }
     ]
   }

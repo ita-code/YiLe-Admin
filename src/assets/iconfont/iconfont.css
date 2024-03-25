@@ -1,0 +1,69 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4231886 */
+  src: url('iconfont.svg?t=1711372026751#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon_close:before {
+  content: "\e62c";
+}
+
+.cancel_tel:before {
+  content: "\eba3";
+}
+
+.guaduan:before {
+  content: "\e8ef";
+}
+
+.phoneoutgoingboda:before {
+  content: "\e6de";
+}
+
+.dingqixiaojie:before {
+  content: "\e6e1";
+}
+
+.phoneincomingjieting:before {
+  content: "\e6dd";
+}
+
+.VIDEOCAMERA:before {
+  content: "\e71b";
+}
+
+.zhibiaozhuangtai:before {
+  content: "\e637";
+}
+
+.denglu:before {
+  content: "\e6bd";
+}
+
+.busy-manglu:before {
+  content: "\e616";
+}
+
+.free:before {
+  content: "\e7ac";
+}
+
+.shebeizhuangtai:before {
+  content: "\e60a";
+}
+
+.zhishou:before {
+  content: "\e89b";
+}
+
+.dengchu:before {
+  content: "\e60f";
+}
+
