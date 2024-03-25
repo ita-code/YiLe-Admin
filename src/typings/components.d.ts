@@ -7,6 +7,8 @@ export {}
 
 declare module "vue" {
   export interface GlobalComponents {
+    ColSetting: (typeof import("./../components/ProTable/components/ColSetting.vue"))["default"];
+    ECharts: (typeof import("./../components/ECharts/index.vue"))["default"];
     ElAside: (typeof import("element-plus/es"))["ElAside"];
     ElBadge: (typeof import("element-plus/es"))["ElBadge"];
     ElBreadcrumb: (typeof import("element-plus/es"))["ElBreadcrumb"];
@@ -44,8 +46,30 @@ declare module "vue" {
     ElTabs: (typeof import("element-plus/es"))["ElTabs"];
     ElTag: (typeof import("element-plus/es"))["ElTag"];
     ElTooltip: (typeof import("element-plus/es"))["ElTooltip"];
+    ErrorPage: (typeof import("./../components/ErrorPage/index.vue"))["default"];
+    Grid: (typeof import("./../components/Grid/index.vue"))["default"];
+    GridItem: (typeof import("./../components/Grid/components/GridItem.vue"))["default"];
+    Img: (typeof import("./../components/Upload/Img.vue"))["default"];
+    Imgs: (typeof import("./../components/Upload/Imgs.vue"))["default"];
+    ImportExcel: (typeof import("./../components/ImportExcel/index.vue"))["default"];
+    Kbd: (typeof import("./../components/Kbd/index.vue"))["default"];
+    Loading: (typeof import("./../components/Loading/src/Loading.vue"))["default"];
+    Pagination: (typeof import("./../components/ProTable/components/Pagination.vue"))["default"];
+    Popover: (typeof import("./../components/popover/index.vue"))["default"];
+    ProTable: (typeof import("./../components/ProTable/index.vue"))["default"];
     RouterLink: (typeof import("vue-router"))["RouterLink"];
     RouterView: (typeof import("vue-router"))["RouterView"];
+    SearchForm: (typeof import("./../components/SearchForm/index.vue"))["default"];
+    SearchFormItem: (typeof import("./../components/SearchForm/components/SearchFormItem.vue"))["default"];
+    Select: (typeof import("./../components/Icon/src/Select.vue"))["default"];
+    SelectFilter: (typeof import("./../components/SelectFilter/index.vue"))["default"];
+    SelectIcon: (typeof import("./../components/SelectIcon/index.vue"))["default"];
+    SvgIcon: (typeof import("./../components/SvgIcon/index.vue"))["default"];
+    SwitchDark: (typeof import("./../components/SwitchDark/index.vue"))["default"];
+    TableColumn: (typeof import("./../components/ProTable/components/TableColumn.vue"))["default"];
+    TreeFilter: (typeof import("./../components/TreeFilter/index.vue"))["default"];
+    VirtualScroll: (typeof import("./../components/VirtualScroll/index.vue"))["default"];
+    WangEditor: (typeof import("./../components/WangEditor/index.vue"))["default"];
   }
   export interface ComponentCustomProperties {
     vLoading: (typeof import("element-plus/es"))["ElLoadingDirective"];
