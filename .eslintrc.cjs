@@ -19,6 +19,7 @@ module.exports = {
       jsx: true
     }
   },
+  ignorePatterns: ["src/assets/**", "src/**/iconfont/**"],
   // 继承某些已有的规则
   extends: ["plugin:vue/vue3-recommended", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
   /**

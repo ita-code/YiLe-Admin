@@ -35,7 +35,17 @@ import errorHandler from "@/utils/errorHandler";
 // uno.css https://unocss.dev/integrations/vite
 import "virtual:uno.css";
 
+// 导入字体图标
+import "./assets/iconfont/iconfont.js";
+import "./assets/iconfont/iconfont.css";
+
 const app = createApp(App);
+
+// 全局注册@iconify/vue图标库
+import { IconifyIconOffline, IconifyIconOnline, FontIcon } from "./components/Icon";
+app.component("IconifyIconOffline", IconifyIconOffline);
+app.component("IconifyIconOnline", IconifyIconOnline);
+app.component("FontIcon", FontIcon);
 
 // import api from "@/api";
 // app.config.globalProperties.$api = api;

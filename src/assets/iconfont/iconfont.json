@@ -1,0 +1,107 @@
+{
+  "id": "4231886",
+  "name": "tel",
+  "font_family": "iconfont",
+  "css_prefix_text": "",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1048891",
+      "name": "关闭",
+      "font_class": "icon_close",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "37309851",
+      "name": "cancel_tel",
+      "font_class": "cancel_tel",
+      "unicode": "eba3",
+      "unicode_decimal": 60323
+    },
+    {
+      "icon_id": "22998937",
+      "name": "挂断",
+      "font_class": "guaduan",
+      "unicode": "e8ef",
+      "unicode_decimal": 59631
+    },
+    {
+      "icon_id": "20009228",
+      "name": "phoneoutgoing拨打",
+      "font_class": "phoneoutgoingboda",
+      "unicode": "e6de",
+      "unicode_decimal": 59102
+    },
+    {
+      "icon_id": "4182953",
+      "name": "定期小结",
+      "font_class": "dingqixiaojie",
+      "unicode": "e6e1",
+      "unicode_decimal": 59105
+    },
+    {
+      "icon_id": "20009247",
+      "name": "phoneincoming接听",
+      "font_class": "phoneincomingjieting",
+      "unicode": "e6dd",
+      "unicode_decimal": 59101
+    },
+    {
+      "icon_id": "1911721",
+      "name": "VIDEO CAMERA",
+      "font_class": "VIDEOCAMERA",
+      "unicode": "e71b",
+      "unicode_decimal": 59163
+    },
+    {
+      "icon_id": "14625670",
+      "name": "指标状态",
+      "font_class": "zhibiaozhuangtai",
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    },
+    {
+      "icon_id": "15644324",
+      "name": "登录",
+      "font_class": "denglu",
+      "unicode": "e6bd",
+      "unicode_decimal": 59069
+    },
+    {
+      "icon_id": "15971891",
+      "name": "busy - 忙碌",
+      "font_class": "busy-manglu",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "17228756",
+      "name": "空闲",
+      "font_class": "free",
+      "unicode": "e7ac",
+      "unicode_decimal": 59308
+    },
+    {
+      "icon_id": "17755683",
+      "name": "设备状态",
+      "font_class": "shebeizhuangtai",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "21858855",
+      "name": "值守",
+      "font_class": "zhishou",
+      "unicode": "e89b",
+      "unicode_decimal": 59547
+    },
+    {
+      "icon_id": "26315515",
+      "name": "登出",
+      "font_class": "dengchu",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    }
+  ]
+}
