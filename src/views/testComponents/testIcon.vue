@@ -61,6 +61,11 @@ const icon = ref("ep:add-location");
         <component :is="useRenderIcon('al-enter_outlined svg')" class="icon" width="18px" />
         {{ `<component :is="useRenderIcon('al-enter_outlined svg')" class="icon" width="18px" />` }}
       </GridItem>
+      <GridItem>
+        <el-divider> FontIcon: keyboard_esc </el-divider>
+        <FontIcon icon="keyboard_esc" :svg="true" class="icon" width="20px" height="20px" />
+        {{ `<FontIcon icon="keyboard_esc" :svg="true" class="icon" width="20px" height="20px" />` }}
+      </GridItem>
     </Grid>
   </el-card>
 </template>

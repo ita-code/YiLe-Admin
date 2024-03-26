@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useGlobalStore } from "@/stores/modules/global";
+const globalStore = useGlobalStore();
+
 interface Props {
   options: Array<Menu.MenuOptions | Record<string, any>>;
 }
@@ -16,7 +19,7 @@ const instance = getCurrentInstance()!;
 const itemStyle = computed(() => {
   return (item): CSSProperties => {
     return {
-      background: item?.path === active.value ? "#000" : "red",
+      background: item?.path === active.value ? globalStore.primary : "",
       color: item.path === active.value ? "#fff" : "",
       fontSize: item.path === active.value ? "16px" : "14px"
     };
@@ -62,7 +65,7 @@ defineExpose({ handleScroll });
       v-for="(item, index) in props.options"
       :key="item.path"
       :ref="'resultItemRef' + index"
-      class="flex items-center h-14 p-3.5 mt-2 cursor-pointer border-0.025 border-solid border-#ccc border-rd-1 transition='all duration-0.3s' dark:bg-[#1d1d1d]"
+      class="flex items-center p-3.5 mt-2 cursor-pointer border-0.025 border-solid border-#ccc border-rd-1 transition='all duration-0.3s' dark:bg-[#1d1d1d]"
       :style="itemStyle(item)"
       @click="handleTo"
       @mouseenter="handleMouse(item)"
@@ -71,7 +74,7 @@ defineExpose({ handleScroll });
       <span class="flex flex-1 ml-1.25">
         {{ item.meta?.title }}
       </span>
-      <!-- <Kbd> √</Kbd> -->
+      <FontIcon icon="enter_outlined" :svg="true" class="icon" width="20px" height="20px" />
     </div>
   </div>
 </template>
