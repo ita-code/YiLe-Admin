@@ -2,6 +2,7 @@ import iconifyIconOffline from "./src/iconifyIconOffline";
 import iconifyIconOnline from "./src/iconifyIconOnline";
 import iconSelect from "./src/Select.vue";
 import fontIcon from "./src/iconfont";
+import { useRenderIcon } from "./src/hooks";
 
 /** 本地图标组件 */
 const IconifyIconOffline = iconifyIconOffline;
@@ -12,4 +13,4 @@ const IconSelect = iconSelect;
 /** `iconfont`组件 */
 const FontIcon = fontIcon;
 
-export { IconifyIconOffline, IconifyIconOnline, IconSelect, FontIcon };
+export { IconifyIconOffline, IconifyIconOnline, IconSelect, FontIcon, useRenderIcon };

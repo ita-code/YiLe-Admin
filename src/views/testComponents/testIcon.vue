@@ -53,6 +53,14 @@ const icon = ref("ep:add-location");
         <component :is="useRenderIcon('ep:arrow-left-bold')" />
         {{ `<component :is="useRenderIcon('ep:arrow-left-bold')" />` }}
       </GridItem>
+      <GridItem :span="2">
+        <el-divider> 本地Svg </el-divider>
+      </GridItem>
+      <GridItem>
+        <el-divider> useRenderIcon: al-enter_outlined svg </el-divider>
+        <component :is="useRenderIcon('al-enter_outlined svg')" class="icon" width="18px" />
+        {{ `<component :is="useRenderIcon('al-enter_outlined svg')" class="icon" width="18px" />` }}
+      </GridItem>
     </Grid>
   </el-card>
 </template>

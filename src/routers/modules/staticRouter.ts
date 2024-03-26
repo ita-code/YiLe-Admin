@@ -137,7 +137,7 @@ export const testComponentRouter = [
         component: "/testComponents/testIcon",
         meta: {
           icon: "Menu",
-          title: "测试Icon",
+          title: "Icon",
           isLink: "",
           isHide: false,
           isFull: false,

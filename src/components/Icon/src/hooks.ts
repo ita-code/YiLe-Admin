@@ -10,12 +10,10 @@ import { IconifyIconOnline, IconifyIconOffline, FontIcon } from "../index";
  * @returns Component
  */
 export function useRenderIcon(icon: any, attrs?: iconType): Component {
-  // iconfont
-  const ifReg = /^al-/;
-  // typeof icon === "function" 属于SVG
-  if (ifReg.test(icon)) {
-    // iconfont
-    const name = icon.split(ifReg)[1];
+  const alReg = /^al-/;
+  if (alReg.test(icon)) {
+    // iconfont al- 开头  本地svg渲染
+    const name = icon.split(alReg)[1];
     const iconName = name.slice(0, name.indexOf(" ") == -1 ? name.length : name.indexOf(" "));
     const iconType = name.slice(name.indexOf(" ") + 1, name.length);
     return defineComponent({
@@ -29,7 +27,7 @@ export function useRenderIcon(icon: any, attrs?: iconType): Component {
       }
     });
   } else if (typeof icon === "function" || typeof icon?.render === "function") {
-    // svg
+    // typeof icon === "function" 属于SVG
     return attrs ? h(icon, { ...attrs }) : icon;
   } else if (typeof icon === "object") {
     return defineComponent({

@@ -27,25 +27,22 @@ function handleSearch() {
         font-size: 12px;
       }
     }
-
     .el-dialog__header {
       display: none;
     }
-
     .el-dialog__body {
-      padding-top: 20px;
       padding-bottom: 0;
     }
-
     .el-input__inner {
       font-size: 1.2em;
     }
-
     .el-dialog__footer {
-      padding-bottom: 10px;
+      width: calc(100% + 32px);
+      padding: 10px 20px;
+      margin: auto -16px -16px;
       box-shadow:
-        0 -1px 0 0 #e0e3e8,
-        0 -3px 6px 0 rgb(69 98 155 / 12%);
+        0 -1px #e0e3e8,
+        0 -3px 6px #45629b1f;
     }
   }
 }
