@@ -22,6 +22,7 @@ YiLe-Admin是一个开源项目，您可以自由使用和贡献代码。无论�
 - 使用 Prettier 统一格式化代码，集成 ESLint、Stylelint 代码校验规范
 - 使用 husky、lint-staged、commitlint、czg、cz-git 规范提交信息
 - 使用 unplugin-auto-import、unplugin-vue-components自动按需导入组件
+- 使用 iconify 图标解决方案作为项目的icon、svg。
 
 - **Install：**
 
@@ -143,4 +144,4 @@ YiLe-Admin
 - [ ] 菜单搜索功能
 - [ ] 登录页设计修改
 - [-] 组件自动引入和Vue导入，引发问题类型报错
-- [ ] icon项目解决方案
+- [-] icon项目解决方案
